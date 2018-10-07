@@ -2,6 +2,7 @@
 ### [创建线程方法1（并获取当前运行线程的名称）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/创建线程1.MD)
 ### [创建线程方法2](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/创建线程2.MD)
 ### [等待唤醒机制](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/等待唤醒.MD)
+### [Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/Lock.MD)
 ### [例1：卖票示例（同步代码块）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例1.MD)
 ### [例2：存钱示例（同步函数）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例2.MD)
 ### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
