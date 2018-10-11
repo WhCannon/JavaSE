@@ -6,5 +6,5 @@
  - [Object 类](https://github.com/WhCannon/JavaSE/blob/master/Object-class/README.MD)
  - [包](https://github.com/WhCannon/JavaSE/blob/master/Package/README.MD)
  - [多线程](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/README.MD)
- - [API（String类）](https://github.com/WhCannon/JavaSE/blob/master/Design-pattern/String.MD)
+ - [String类](https://github.com/WhCannon/JavaSE/blob/master/Design-pattern/String.MD)
  - [设计模式](https://github.com/WhCannon/JavaSE/blob/master/Design-pattern/README.MD)
