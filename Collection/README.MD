@@ -1,6 +1,6 @@
 # 集合框架Collection
 - [常用方法](#常用方法)
-
+- [迭代器](#迭代器)
 
 
 ## 常用方法
@@ -50,5 +50,24 @@ boolean b =ci.containsAll(c2);//false
 
 //其他
 c1.retainAll(c2);//c1=[abc2],取交集
-
 ```
+## 迭代器
+```java
+Collection coll = new ArrayList();
+coll.add("abc1");
+coll.add("abc2");
+coll.add("abc3");
+coll.add("abc4");
+//使用Collection中的iterator()方法, 调用集合中的迭代器方法，是为了获取集合中的迭代器对象。
+Iterator it = coll.iterator();//创建一个迭代器对象		
+System.out.println(it.next());//abc1
+System.out.println(it.next());//abc2
+System.out.println(it.next());//abc3
+System.out.println(it.next());//abc4
+System.out.println(it.next());//java.util.NoSuchElementException
+
+
+//		while(it.hasNext()){
+//			System.out.println(it.next());
+```
+
