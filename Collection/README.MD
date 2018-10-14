@@ -4,23 +4,23 @@
 
 
 ## 常用方法
-1、添加
-boolean add(Object obj);
-boolean addAll(Collection coll);
-2、删除
-boolean remove(object obj);//remove会改变集合的长度
-boolean removeAll(Collection coll);//将内部与coll集合中相同的元素删除
+### 添加
+boolean add(Object obj);  
+boolean addAll(Collection coll);  
+### 删除
+boolean remove(object obj);//remove会改变集合的长度  
+boolean removeAll(Collection coll);//将内部与coll集合中相同的元素删除  
 void clear();//清空
-3、判断
-boolean contains(object obj);
-boolean containsAll(Colllection coll);
-boolean isEmpty();//判断集合中是否有元素。
-4、获取
-int size();//获取长度
-Iterator iterator();//迭代器(取出集合中元素的方式称为迭代器)
-5、其他
-boolean retainAll(Collection coll);//取交集（相同的元素）
-Object[] toArray();//将集合转成数组。
+### 判断
+boolean contains(object obj);  
+boolean containsAll(Colllection coll);  
+boolean isEmpty();//判断集合中是否有元素。  
+### 获取
+int size();//获取长度  
+Iterator iterator();//迭代器(取出集合中元素的方式称为迭代器)  
+### 其他
+boolean retainAll(Collection coll);//取交集（相同的元素）  
+Object[] toArray();//将集合转成数组。  
 
 示例：
 ```java
