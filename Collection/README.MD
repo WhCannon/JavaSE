@@ -22,7 +22,7 @@ Iterator iterator();//迭代器(取出集合中元素的方式称为迭代器)
 boolean retainAll(Collection coll);//取交集（相同的元素）  
 Object[] toArray();//将集合转成数组。  
 
-示例：
+方法示例：
 ```java
 //创建两个集合
 Collection c1 = new ArrayList();
