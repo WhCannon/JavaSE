@@ -1,9 +1,10 @@
 # 集合框架Collection
-- [常用方法](#常用方法)
+- [Collection常用方法](#Collection常用方法)
 - [迭代器](#迭代器)
+- [List接口](#List接口)
 
 
-## 常用方法
+## Collection常用方法
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -69,4 +70,44 @@ System.out.println(it.next());//java.util.NoSuchElementException
 for(Iterator it = coll.iterator(); it.hasNext(); ){
 			System.out.println(it.next());
 		}
+```
 
+## List接口
+### 特有的常见方法
+### 添加
+	void add(index,element);
+	void add(index,collection);
+### 删除
+	Object remove(index);//返回被删除的对象
+### 修改
+	Object set(index,element);//返回被修改的对象
+### 获取
+	Object get(index);
+	int indexOf(object);
+	int lastIndexOf(object);
+	List subList(from,to);(包括from,不包括to)
+方法示例：
+```java
+List list = new ArrayList();//创建一个List类型的变量
+//添加元素
+list.add("abc1");
+list.add("abc2");
+list.add("abc3");//[abc1,abc2,abc3]
+
+//插入元素。	
+//list.add(1,"abc9");//[abc1,abc9,abc2,abc3]
+		
+//删除元素。
+//System.out.println("remove:"+list.remove(2));//remove:abc3   list=[abc1,abc2]
+		
+//修改元素。
+//System.out.println("set:"+list.set(1, "abc8"));//set:abc2   list=[abc1,abc8,abc3]
+		
+//获取元素。
+//System.out.println("get:"+list.get(0));//get:abc1
+		
+//获取子列表。
+//System.out.println("sublist:"+list.subList(1, 2));//[abc2]
+
+
+```
