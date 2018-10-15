@@ -158,6 +158,13 @@ E getFirst();//返回列表的第一个元素
 E getLast();  
 E removeFirst();  
 E removeLast();  
+上面这些方法使用时，如果链表为空，会抛出NoSuchElementException。因此，有以下改善的方法：  
+offerFirst();//插入  
+offerLast();  
+peekFirst();//获取但不移除，如果列表为空，返回null  
+peekLast();  
+pollFirst();//获取并移除，如果列表为空，返回null  
+pollLast();  
 ```java
 LinkedList link = new LinkedList();
 link.addFirst("abc1");
