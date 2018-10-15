@@ -138,5 +138,5 @@ if(obj.equals("abc2")){
 	}
 }
 ```
-逆向遍历 
+逆向遍历  
 	bollean hasPrevious();//判断迭代是否有前一个元素
