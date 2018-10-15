@@ -109,5 +109,4 @@ list.add("abc3");//[abc1,abc2,abc3]
 //获取子列表。
 //System.out.println("sublist:"+list.subList(1, 2));//[abc2]
 
-
 ```
