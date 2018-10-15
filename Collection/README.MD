@@ -147,3 +147,14 @@ bollean hasPrevious();//判断迭代是否有前一个元素
 ## 3
 ## ArrayList
 内部是长度可变的数组数据结构，是不同步的，替代了Vector。查询的速度快。
+
+## LinkedList
+```java
+内部是链表数据结构，是不同步的。增删元素的速度快。  
+void addFirst(E);//将是定元素插入列表的开头  
+void addLast(E);  
+E getFirst();//返回列表的第一个元素  
+E getLast();  
+E removeFirst();  
+E removeLast();  
+```
