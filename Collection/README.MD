@@ -157,5 +157,17 @@ E getLast();
 E removeFirst();  
 E removeLast();  
 ```java
+LinkedList link = new LinkedList();
+link.addFirst("abc1");
+link.addFirst("abc2");
+link.addFirst("abc3");
+link.addFirst("abc4");//[abc4,abc3,abc2,abc1]
+
+System.out.println(link.getFirst());//abc4   //获取第一个但不删除。
+System.out.println(link.getFirst());//abc4
+
+System.out.println(link.removeFirst());//abc4  //获取元素但是会删除。
+System.out.println(link.removeFirst());//abc3
+
 
 ```
