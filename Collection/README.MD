@@ -85,6 +85,8 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 	int lastIndexOf(object);
 	List subList(from,to);(包括from,不包括to)
 ### [列表迭代器](#列表迭代器)
+	ListIterator it = list.listIterator();//获取列表迭代器对象
+	
 方法示例：
 ```java
 List list = new ArrayList();//创建一个List类型的变量
@@ -136,3 +138,5 @@ if(obj.equals("abc2")){
 	}
 }
 ```
+逆向遍历 
+	bollean hasPrevious();//判断迭代是否有前一个元素
