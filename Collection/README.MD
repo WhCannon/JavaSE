@@ -4,6 +4,7 @@
 - [List接口](#2)
 - [ArrayList](#3)
 - [LinkedList](#4)
+- [练习](#练习)
 
 ## 1
 ### Collection常用方法
@@ -74,7 +75,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 		}
 ```  
 ## 2
-## List接口
+### List接口
 ### 添加
 	void add(index,element);
 	void add(index,collection);
@@ -141,14 +142,15 @@ if(obj.equals("abc2")){
 	}
 }
 ```
-逆向遍历  
+### 逆向遍历  
 bollean hasPrevious();//判断迭代是否有前一个元素
 
 ## 3
-## ArrayList
+### ArrayList
 内部是长度可变的数组数据结构，是不同步的，替代了Vector。查询的速度快。
+
 ## 4
-## LinkedList
+### LinkedList
 内部是链表数据结构，是不同步的。增删元素的速度快。  
 void addFirst(E);//将是定元素插入列表的开头  
 void addLast(E);  
@@ -169,5 +171,20 @@ System.out.println(link.getFirst());//abc4
 System.out.println(link.removeFirst());//abc4  //获取元素但是会删除。
 System.out.println(link.removeFirst());//abc3
 
+```
+
+## 练习
+### 练习1 [答案1](#答案1) 
+请使用LinkedList来模拟一个堆栈或者队列数据结构。  
+堆栈：先进后出 First In Last Out  FILO  
+队列：先进先出 First In First Out FIFO  
+
+
+
+
+
+
+### 答案1
+```java
 
 ```
