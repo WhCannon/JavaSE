@@ -3,6 +3,7 @@
 - [迭代器](#迭代器)
 - [List接口](#2)
 - [ArrayList](#3)
+- [LinkedList](#LinkedList)
 
 ## 1
 ### Collection常用方法
