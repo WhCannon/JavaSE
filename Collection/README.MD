@@ -1,5 +1,5 @@
 # 集合框架Collection
-- [Collection](#Collection常用方法)  
+- [Collection](#Collection常用方法)
 - [迭代器](#迭代器)
 - [List接口](#2)
 
