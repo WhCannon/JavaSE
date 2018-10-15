@@ -1,8 +1,8 @@
 # 集合框架Collection
-- [Collection](#Collection常用方法)
+- [Collection常用方法](#1)
 - [迭代器](#迭代器)
 - [List接口](#2)
-
+## 1
 ### Collection常用方法
 ### 添加
 boolean add(Object obj);  
