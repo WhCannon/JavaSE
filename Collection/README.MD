@@ -84,6 +84,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 	int indexOf(object);
 	int lastIndexOf(object);
 	List subList(from,to);(包括from,不包括to)
+### 列表迭代器[#列表迭代器]
 方法示例：
 ```java
 List list = new ArrayList();//创建一个List类型的变量
@@ -106,4 +107,32 @@ list.add("abc3");//[abc1,abc2,abc3]
 		
 //获取子列表。
 //System.out.println("sublist:"+list.subList(1, 2));//[abc2]
+```
+### 列表迭代器
+```java
+list.add("abc1");
+list.add("abc2");
+list.add("abc3");
+Iterator it = list.iterator();
+while(it.hasNext()){
+Object obj = it.next();	//java.util.ConcurrentModificationException
+if(obj.equals("abc2")){
+	list.add("abc9");
+			}
+else
+	System.out.println("next:"+obj);
+		}
+```
+在迭代器过程中，如果使用集合操作元素，容易出现异常。  
+可以使用Iterator接口的子接口ListIterator来完成在迭代中对元素进行更多的操作。
+```java
+ListIterator it = list.listIterator();//获取列表迭代器对象
+//它可以实现在迭代过程中完成对元素的增删改查。
+//注意：只有list集合具备该迭代功能.
+while(it.hasNext()){
+Object obj = it.next();
+if(obj.equals("abc2")){
+	it.add("abc9");
+	}
+}
 ```
