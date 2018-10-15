@@ -1,7 +1,8 @@
 # 集合框架Collection
-- [Collection常用方法](#Collection常用方法)
+- [Collection常用方法](Collection常用方法)
 - [迭代器](#迭代器)
 - [List接口](#List接口)
+
 ##  Collection常用方法
 ### 添加
 boolean add(Object obj);  
@@ -45,7 +46,7 @@ c1.addAll(c2);//c1=[abc1,abc2,abc3,abc4,abc2,abc6,abc7]
 c1.removeAll(c2);//c1=[abc1,abc3,abc4]  将两个集合中相同的元素删除
 
 //判断
-boolean b =ci.containsAll(c2);//false
+boolean b =ci.containsAll(c2);//false 
 
 //其他
 c1.retainAll(c2);//c1=[abc2],取交集
