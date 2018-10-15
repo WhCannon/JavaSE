@@ -70,8 +70,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 			System.out.println(it.next());
 		}
 ```  
-
-# 2
+## 2
 ## List接口
 ### 添加
 	void add(index,element);
