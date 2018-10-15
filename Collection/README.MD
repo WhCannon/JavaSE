@@ -71,7 +71,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 		}
 ```  
 
-## List 接口
+## List
 ### 添加
 	void add(index,element);
 	void add(index,collection);
