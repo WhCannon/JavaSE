@@ -1,5 +1,5 @@
 # 集合框架Collection
-- [Collection常用方法](#Collection常用方法)
+- [Collection常用方法](#添加)
 - [迭代器](#迭代器)
 - [List接口](#List接口)
 
@@ -71,7 +71,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 		}
 ```  
 
-### List接口
+## List接口
 ### 添加
 	void add(index,element);
 	void add(index,collection);
