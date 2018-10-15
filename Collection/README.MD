@@ -2,8 +2,6 @@
 - [Collection常用方法](#Collection常用方法)
 - [迭代器](#迭代器)
 - [List接口](#List接口)
-
-
 ## Collection常用方法
 ### 添加
 boolean add(Object obj);  
@@ -71,7 +69,6 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 			System.out.println(it.next());
 		}
 ```
-
 ## List接口
 ### 特有的常见方法
 ### 添加
