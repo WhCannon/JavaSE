@@ -1,10 +1,9 @@
 # 集合框架Collection
-- [Collection常用方法](#Collection常用方法)
+- [Collection](#Collection常用方法)  
 - [迭代器](#迭代器)
 - [List接口](#List接口)
 
 ## Collection常用方法
-
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -73,7 +72,6 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 ```  
 
 ## List接口
-
 ### 添加
 	void add(index,element);
 	void add(index,collection);
@@ -108,5 +106,4 @@ list.add("abc3");//[abc1,abc2,abc3]
 		
 //获取子列表。
 //System.out.println("sublist:"+list.subList(1, 2));//[abc2]
-
 ```
