@@ -196,7 +196,7 @@ public class LinkedTest {
 		dl.myAdd("abc2");
 		dl.myAdd("abc3");
 		dl.myAdd("abc4");
-		
+		//队列
 		while(!dl.isNull()){
 			System.out.println(dl.myGet());
 		}
@@ -216,7 +216,7 @@ public class DuiLie {
 	public void myAdd(Object obj) {
 		link.addLast(obj);
 	}
-
+	//先进先出
 	public Object myGet() {
 		return link.removeFirst();
 	}
