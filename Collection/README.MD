@@ -84,7 +84,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 	int indexOf(object);
 	int lastIndexOf(object);
 	List subList(from,to);(包括from,不包括to)
-### 列表迭代器[#列表迭代器]
+### [列表迭代器](#列表迭代器)
 方法示例：
 ```java
 List list = new ArrayList();//创建一个List类型的变量
