@@ -3,8 +3,7 @@
 - [迭代器](#迭代器)
 - [List接口](#List接口)
 
-### Collection常用方法
-
+## Collection常用方法
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -70,9 +69,9 @@ System.out.println(it.next());//java.util.NoSuchElementException
 for(Iterator it = coll.iterator(); it.hasNext(); ){
 			System.out.println(it.next());
 		}
-```
-### List接口
+```  
 
+### List接口
 ### 添加
 	void add(index,element);
 	void add(index,collection);
