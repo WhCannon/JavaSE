@@ -4,7 +4,7 @@
 - [List接口](#List接口)
 
 
-## Collection常用方法
+## Collection常用方法  
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -72,7 +72,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 		}
 ```
 
-## List接口
+## List接口  
 ### 特有的常见方法
 ### 添加
 	void add(index,element);
