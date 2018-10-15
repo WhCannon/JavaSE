@@ -2,7 +2,7 @@
 - [Collection常用方法](#1)
 - [迭代器](#迭代器)
 - [List接口](#2)
-- [ArrayList](#ArrayList)
+- [ArrayList](#3)
 
 ## 1
 ### Collection常用方法
@@ -143,5 +143,6 @@ if(obj.equals("abc2")){
 逆向遍历  
 bollean hasPrevious();//判断迭代是否有前一个元素
 
+## 3
 ## ArrayList
 内部是长度可变的数组数据结构，是不同步的，替代了Vector。查询的速度快。
