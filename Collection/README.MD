@@ -186,5 +186,42 @@ System.out.println(link.removeFirst());//abc3
 
 ### 答案1
 ```java
+package cn.itcast.p2.linkedlist.test;
+import java.util.ArrayList;
 
+public class LinkedTest {
+	public static void main(String[] args) {
+		DuiLie dl = new DuiLie();
+		dl.myAdd("abc1");
+		dl.myAdd("abc2");
+		dl.myAdd("abc3");
+		dl.myAdd("abc4");
+		
+		while(!dl.isNull()){
+			System.out.println(dl.myGet());
+		}
+	}
+}
+
+public class DuiLie {
+	private LinkedList link;
+
+	public DuiLie() {
+		link = new LinkedList();
+	}
+
+	/**
+	 * 队列的添加元素的功能。
+	 */
+	public void myAdd(Object obj) {
+		link.addLast(obj);
+	}
+
+	public Object myGet() {
+		return link.removeFirst();
+	}
+	public boolean isNull() {
+		return link.isEmpty();
+	}
+}
 ```
