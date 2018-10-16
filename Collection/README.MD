@@ -1,8 +1,8 @@
 # 集合框架Collection
 - ## [Collection常用方法](#collection常用方法)
 	- ### [迭代器](#collection常用方法-迭代器)
-- ## [List接口](#list接口)
-	- ### [ArrayList](#arrylist)
+- ## [List接口](#集合框架collection-list接口)
+	- ### [ArrayList](#arraylist)
 	- ### [LinkedList](#linkedlist)
 - ## [Set接口](#set接口)
 - ## [练习](#练习)
