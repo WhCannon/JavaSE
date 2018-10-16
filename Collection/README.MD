@@ -1,14 +1,15 @@
 # 集合框架Collection
-## [Collection常用方法](#collection常用方法)
+## [Collection常用方法](#collection)
   - [迭代器](#迭代器)
-## [List接口](#list接口)
+## [List接口](#list)
    - [ArrayList](#arraylist)
    - [LinkedList](#linkedlist)
-## [Set接口](#set接口)
+## [Set接口](#set)
+   - [TreeSet](#TreeSet)
 ## [练习](#练习)
 
 
-## Collection常用方法
+## Collection
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -77,7 +78,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 		}
 ```  
 
-## List接口
+## List
 
 ### 添加
 	void add(index,element);
@@ -201,6 +202,11 @@ System.out.println(link.removeFirst());//abc4  //获取元素但是会删除。
 System.out.println(link.removeFirst());//abc3
 
 ```
+
+
+## Set
+### TreeSet
+
 
 ## 练习
 ### 练习1 [答案1](#答案1) 
