@@ -1,6 +1,6 @@
 # 集合框架Collection
 - ## [Collection常用方法](#1)
-	- ### [迭代器](#D)
+	- ### [迭代器](#1.1)
 - ## [List接口](#2)
 	- ### [ArrayList](#3)
 	- ### [LinkedList](#4)
@@ -56,7 +56,7 @@ boolean b =ci.containsAll(c2);//false
 //其他
 c1.retainAll(c2);//c1=[abc2],取交集
 ```
-## D
+## 1.1
 ### 迭代器
 ```java
 Collection coll = new ArrayList();
