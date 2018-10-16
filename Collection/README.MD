@@ -1,14 +1,13 @@
 # 集合框架Collection
-- ## [Collection常用方法](#1)
-	- ### [迭代器](#6)
-- ## [List接口](#2)
-	- ### [ArrayList](#3)
-	- ### [LinkedList](#4)
-- ## [Set接口](#5)
+- ## [Collection常用方法](#collection常用方法)
+	- ### [迭代器](#迭代器)
+- ## [List接口](#list接口)
+	- ### [ArrayList](#arrylist)
+	- ### [LinkedList](#linkedlist)
+- ## [Set接口](#set接口)
 - ## [练习](#练习)
 
-## 1
-### Collection常用方法
+## Collection常用方法
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
@@ -56,7 +55,7 @@ boolean b =ci.containsAll(c2);//false
 //其他
 c1.retainAll(c2);//c1=[abc2],取交集
 ```
-## 6
+
 ### 迭代器
 ```java
 Collection coll = new ArrayList();
@@ -76,8 +75,8 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 			System.out.println(it.next());
 		}
 ```  
-## 2
-### List接口
+
+## List接口
 ### 添加
 	void add(index,element);
 	void add(index,collection);
@@ -147,7 +146,7 @@ if(obj.equals("abc2")){
 ### 逆向遍历  
 bollean hasPrevious();//判断迭代是否有前一个元素
 
-## 3
+
 ### ArrayList
 内部是长度可变的数组数据结构，是不同步的，替代了Vector。查询的速度快。
 ```java
@@ -170,7 +169,7 @@ Person p = (Person) it.next();//进行强转
 System.out.println(p.getName()+"--"+p.getAge());
 }
 ```
-## 4
+
 ### LinkedList
 内部是链表数据结构，是不同步的。增删元素的速度快。  
 void addFirst(E);//将是定元素插入列表的开头  
