@@ -148,7 +148,26 @@ bollean hasPrevious();//判断迭代是否有前一个元素
 ## 3
 ### ArrayList
 内部是长度可变的数组数据结构，是不同步的，替代了Vector。查询的速度快。
+```java
+//ArrayList集合存储自定对象
+public static void main(String[] args) {
+Person p1 = new Person("lisi1",21);
+ArrayList al = new ArrayList();
 
+al.add(p1);
+al.add(new Person("lisi2",22));
+al.add(new Person("lisi3",23));
+al.add(new Person("lisi4",24));
+
+Iterator it = al.iterator();
+while(it.hasNext()){
+//System.out.println(((Person) it.next()).getName()+"::"+((Person) it.next()).getAge());  lisi1::22,lisi3::24
+//每次调用next方法都会向后移一位
+
+Person p = (Person) it.next();//进行强转
+System.out.println(p.getName()+"--"+p.getAge());
+}
+```
 ## 4
 ### LinkedList
 内部是链表数据结构，是不同步的。增删元素的速度快。  
