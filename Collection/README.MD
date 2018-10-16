@@ -1,10 +1,10 @@
 # 集合框架Collection
 - [Collection常用方法](#1)
 - [迭代器](#迭代器)
-- [List接口](#2)
-- [ArrayList](#3)
-- [LinkedList](#4)
-- [Set接口](#5)
+-   ## [List接口](#2)
+	- ### [ArrayList](#3)
+	- ### [LinkedList](#4)
+-   ## [Set接口](#5)
 - [练习](#练习)
 
 ## 1
