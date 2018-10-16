@@ -209,7 +209,7 @@ System.out.println(link.removeFirst());//abc3
 队列：先进先出 First In First Out FIFO  
 
 ### 练习2 [答案2](#答案2) 
-定义功能去除ArrayList中的重复元素  
+以Person对象年龄进行从小到大的排序  
 
 
 
@@ -259,5 +259,27 @@ public class DuiLie {
 
 ### 答案2
 ```java
+public int compareTo(Object o) {
+Person p = (Person)o;
+int  temp = this.age-p.age;
+return temp==0?this.name.compareTo(p.name):temp;
+}
 
+public static void main(String[] args) {
+TreeSet ts = new TreeSet(new ComparatorByName());
+
+ts.add(new Person("zhangsan",28));
+ts.add(new Person("lisi",21));
+ts.add(new Person("zhouqi",29));
+ts.add(new Person("zhaoliu",25));
+ts.add(new Person("wangu",29));
+		
+Iterator it = ts.iterator();
+		
+while(it.hasNext()){
+Person p = (Person)it.next();
+System.out.println(p.getName()+":"+p.getAge());
+}
+}
+输出结果：lisi:21 zhaoliu:25 zhangsan:28 wanggu:29 zhouqi:29
 ```
