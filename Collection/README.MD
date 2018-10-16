@@ -1,13 +1,12 @@
-<!-- MarkdownTOC -->
 # 集合框架Collection
 - ## [Collection常用方法](#collection常用方法)
   - [迭代器](#迭代器)
-- ## [List接口](#list)
-   - ### [ArrayList](#arraylist)
-   - ### [LinkedList](#linkedlist)
+- ## [List接口](#list接口)
+   - [ArrayList](#arraylist)
+   - [LinkedList](#linkedlist)
 - ## [Set接口](#set接口)
 - ## [练习](#练习)
-<!-- MarkdownTOC -->
+
 
 ## Collection常用方法
 ### 添加
@@ -79,6 +78,7 @@ for(Iterator it = coll.iterator(); it.hasNext(); ){
 ```  
 
 ## List接口
+
 ### 添加
 	void add(index,element);
 	void add(index,collection);
