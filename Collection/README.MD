@@ -4,6 +4,7 @@
 - [List接口](#2)
 - [ArrayList](#3)
 - [LinkedList](#4)
+- [Set接口](#5)
 - [练习](#练习)
 
 ## 1
@@ -205,6 +206,8 @@ System.out.println(link.removeFirst());//abc3
 堆栈：先进后出 First In Last Out  FILO  
 队列：先进先出 First In First Out FIFO  
 
+### 练习2 [答案2](#答案2) 
+定义功能去除ArrayList中的重复元素  
 
 
 
@@ -250,4 +253,9 @@ public class DuiLie {
 		return link.isEmpty();
 	}
 }
+```
+
+### 答案2
+```java
+
 ```
