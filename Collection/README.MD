@@ -7,6 +7,7 @@
    - ### [LinkedList](#linkedlist)
 - ## [Set接口](#set接口)
 - ## [练习](#练习)
+<!-- MarkdownTOC -->
 
 ## Collection常用方法
 ### 添加
@@ -26,7 +27,6 @@ Iterator iterator();//迭代器(取出集合中元素的方式称为迭代器)
 ### 其他
 boolean retainAll(Collection coll);//取交集（相同的元素）  
 Object[] toArray();//将集合转成数组。  
-<!-- MarkdownTOC -->
 
 方法示例：
 ```java
