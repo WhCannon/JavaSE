@@ -1,3 +1,4 @@
+<!-- MarkdownTOC -->
 # 集合框架Collection
 - ## [Collection常用方法](#collection常用方法)
    - ### [迭代器](#迭代器)
@@ -25,6 +26,7 @@ Iterator iterator();//迭代器(取出集合中元素的方式称为迭代器)
 ### 其他
 boolean retainAll(Collection coll);//取交集（相同的元素）  
 Object[] toArray();//将集合转成数组。  
+<!-- MarkdownTOC -->
 
 方法示例：
 ```java
