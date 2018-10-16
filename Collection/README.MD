@@ -1,15 +1,15 @@
 <!-- MarkdownTOC -->
 # 集合框架Collection
-- ## [Collection常用方法](#collection常用方法)
+- ## [Collection常用方法](#collection)
    - ### [迭代器](#迭代器)
-- ## [List接口](#list接口)
+- ## [List接口](#list)
    - ### [ArrayList](#arraylist)
    - ### [LinkedList](#linkedlist)
 - ## [Set接口](#set接口)
 - ## [练习](#练习)
 <!-- MarkdownTOC -->
 
-## Collection常用方法
+## Collection
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
