@@ -1,6 +1,6 @@
 # 集合框架Collection
 - ## [Collection常用方法](#collection常用方法)
-	- ### [迭代器](#迭代器)
+	- ### [迭代器](#collection常用方法-迭代器)
 - ## [List接口](#list接口)
 	- ### [ArrayList](#arrylist)
 	- ### [LinkedList](#linkedlist)
