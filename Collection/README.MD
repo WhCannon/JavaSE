@@ -1,5 +1,5 @@
 # 集合框架Collection
-## [Collection常用方法](#collection常用)
+## [Collection常用方法](#collection常用方法)
   - [迭代器](#迭代器)
 ## [List接口](#list)
    - [ArrayList](#arraylist)
@@ -9,7 +9,7 @@
 ## [练习](#练习)
 
 
-## Collection常用
+## Collection常用方法
 ### 添加
 boolean add(Object obj);  
 boolean addAll(Collection coll);  
