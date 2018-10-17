@@ -5,7 +5,9 @@
    - [ArrayList](#arraylist)
    - [LinkedList](#linkedlist)
 ## [Set接口](#set)
-   - [TreeSet](#TreeSet)
+   - [HashSet](#hashset)
+      - [LinkedHashSet](#linkedhashset)
+   - [TreeSet](#treeset)
 ## [练习](#练习)
 
 
@@ -205,8 +207,13 @@ System.out.println(link.removeFirst());//abc3
 
 
 ## Set
+### HashSet
+内部数据结构是哈希表，是不同步的。提高了查询的速度。  
+#### LinkedHashSet
+HashSet的子类，内部为哈希表和链表结构，变成了元素唯一的有序集合。  
 ### TreeSet
-
+interface Comparable();//此接口强行对实现它的每个类的对象进行自然排序  
+可以对Set集合中的元素进行排序。判断元素唯一性是根据compareTo方法,可以进行重写。  
 
 ## 练习
 ### 练习1 [答案1](#答案1) 
