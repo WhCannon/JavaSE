@@ -8,6 +8,7 @@
    - [HashSet](#hashset)
       - [LinkedHashSet](#linkedhashset)
    - [TreeSet](#treeset)
+## [泛型](#泛型)
 ## [练习](#练习)
 
 
@@ -232,6 +233,11 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 	}
 }
 ```
+## 泛型
+
+
+
+
 ## 练习
 ### 练习1 [答案1](#答案1) 
 请使用LinkedList来模拟一个堆栈或者队列数据结构。  
