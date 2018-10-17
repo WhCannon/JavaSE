@@ -213,8 +213,25 @@ System.out.println(link.removeFirst());//abc3
 HashSet的子类，内部为哈希表和链表结构，变成了元素唯一的有序集合。  
 ### TreeSet
 interface Comparable();//此接口强行对实现它的每个类的对象进行自然排序  
-可以对Set集合中的元素进行排序。判断元素唯一性是根据compareTo方法,可以进行重写。  
-
+可以对Set集合中的元素进行排序。判断元素唯一性是根据compareTo方法,可以进行重写。 
+	  
+	  
+如果对象不具备比较性或者其比较方法是我们不需要的，此时可以使用TreeSet集合的第二种排序方式，  
+让集合自身具备比较功能：定义一个类实现Comparator（比较器）接口，覆盖compare方法，  
+将该类对象作为参数传递给TreeSet集合的构造函数。
+```java
+/**
+ * 创建了一个根据Person类的name进行排序的比较器。
+ */
+public class ComparatorByName implements Comparator {
+public int compare(Object o1, Object o2) {
+Person p1 = (Person)o1;
+Person p2 = (Person)o2;
+int temp = p1.getName().compareTo(p2.getName());
+return temp==0?p1.getAge()-p2.getAge(): temp;
+	}
+}
+```
 ## 练习
 ### 练习1 [答案1](#答案1) 
 请使用LinkedList来模拟一个堆栈或者队列数据结构。  
