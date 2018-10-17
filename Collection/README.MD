@@ -253,7 +253,7 @@ public void setObject(QQ object) {
 this.q = object;
 	}
 	
-	// 将泛型定义在方法上。
+	// 将泛型定义在方法上。放在返回值类型前
 public <W> void show(W str){
 	System.out.println("show : "+str.toString());
 }
