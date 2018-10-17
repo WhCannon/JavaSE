@@ -8,8 +8,8 @@
    - [HashSet](#hashset)
       - [LinkedHashSet](#linkedhashset)
    - [TreeSet](#treeset)
-## [泛型](#泛型)
-## [练习](#练习)
+## [泛型](#泛-型)
+## [练习](#练-习)
 
 
 ## Collection常用方法
@@ -234,13 +234,9 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 }
 ```
 
-## 泛型
+## 泛 型
 
-
-
-
-
-## 练习
+## 练 习
 ### 练习1 [答案1](#答案1) 
 请使用LinkedList来模拟一个堆栈或者队列数据结构。  
 堆栈：先进后出 First In Last Out  FILO  
