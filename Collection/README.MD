@@ -243,7 +243,7 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 示例：
 
 ```java
-public class Tool<QQ>{
+public class Tool<QQ>{//定义一个类型参数QQ，使用时传入什么类型，就代表什么类型
 private QQ q;
 public QQ getObject() {
 return q;
