@@ -9,6 +9,7 @@
       - [LinkedHashSet](#linkedhashset)
    - [TreeSet](#treeset)
 ## [泛型](#泛-型)
+   - [泛型类](#泛型类)
 ## [练习](#练-习)
 
 
@@ -235,6 +236,45 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 ```
 
 ## 泛 型
+符号：<>  定义容器时用来明确该容器中要存储什么类型的元素（引用数据类型）  
+定义格式：ArratList<String> al = new ArrayList<String>();  
+	Iterator<String> it =al.iterator();//迭代时也需要用<>来明确  
+### 泛型类
+示例：
+
+```java
+public class Tool<QQ>{
+private QQ q;
+public QQ getObject() {
+return q;
+	}
+
+public void setObject(QQ object) {
+this.q = object;
+	}
+	
+	/**
+	 * 将泛型定义在方法上。
+	 * @param str
+	 */
+public <W> void show(W str){
+	System.out.println("show : "+str.toString());
+}
+public void print(QQ str){
+	System.out.println("print : "+str);
+}
+	
+	/**
+	 * 当方法静态时，不能访问类上定义的泛型。如果静态方法使用泛型，
+	 * 只能将泛型定义在方法上。 
+	 * @param obj
+	 */
+public static <Y> void method(Y obj){
+	System.out.println("method:"+obj);
+	}
+}
+```
+
 
 ## 练 习
 ### 练习1 [答案1](#答案1) 
