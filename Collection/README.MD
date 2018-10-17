@@ -233,7 +233,9 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 	}
 }
 ```
+
 ## 泛型
+### 1
 
 
 
