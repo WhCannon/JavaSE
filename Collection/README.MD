@@ -11,7 +11,7 @@
 ## [泛型](#泛-型)
    - [泛型类](#泛型类)
    - [泛型接口](#泛型接口)
-   - [泛型的上限下限](#泛型的上限下限)
+   - [泛型的限定](#泛型的限定)
 ## [练习](#练-习)
 
 
@@ -298,7 +298,7 @@ in2.show(5);
 	}
 }
 ```
-### 泛型的上限下限
+### 泛型的限定
 通配符： ?  表示未知类型
 ```java
 public static void main(String[] args) {
@@ -326,8 +326,8 @@ System.out.println(str.toString());
 }
 ```
 泛型的限定：  可以对泛型的类型进行限定  
-? extends E:接收E类型或者E的子类型对象，上限  
-? super E ：接收E类型或者E的父类型，下限  
+? extends E：接收E类型或者E的子类型对象   
+? super E ：接收E类型或者E的父类型  
 示例：
 ```java
 public static void printCollection(Collection<? extends Person> al) {//限定只接收Person及其子类
