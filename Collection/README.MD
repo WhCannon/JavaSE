@@ -297,6 +297,33 @@ in2.show(5);
 	}
 }
 ```
+### 泛型的上限下限
+通配符： ?  表示未知类型
+```java
+public static void main(String[] args) {
+ArrayList<String> al = new ArrayList<String>();
+HashSet<Integer> al2 = new HashSet<Integer>();//有多个不同的存储不同数据类型的集合，需要使用同一个工具类
+}
+//迭代并打印集合中的元素
+public static void printCollection(Collection<?> al) {//使用Collection接收不同的集合类型，用<?>代表不同数据类型
+Iterator<?> it = al.iterator();
+while(it.hasNext()){
+System.out.println(it.next().toString());
+		}
+	}
+	
+//与下面这种方法类似
+public static <T> void printCollection(Collection<T> al) {
+Iterator<T> it = al.iterator();
+while(it.hasNext()){
+T str=it.next();
+System.out.println(str.toString());
+		}
+//T t=it.next;  这种方法可以对接收的类型做进一步的操作
+//return t;
+		
+}
+```
 
 
 ## 练 习
