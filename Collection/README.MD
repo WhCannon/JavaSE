@@ -325,6 +325,20 @@ System.out.println(str.toString());
 		
 }
 ```
+泛型的限定：  可以对泛型的类型进行限定  
+? extends E:接收E类型或者E的子类型对象，上限  
+? super E ：接收E类型或者E的父类型，下限  
+示例：
+```java
+public static void printCollection(Collection<? extends Person> al) {//限定只接收Person及其子类
+Iterator<? extends Person> it = al.iterator();
+while(it.hasNext()){
+Person p = it.next();//取出Person，只能取出父类
+System.out.println(p.getName()+":"+p.getAge()); //可以使用父类中的方法
+	}
+}
+```
+
 
 
 ## 练 习
