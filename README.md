@@ -8,5 +8,6 @@
  - [多线程](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/README.MD)
  - [String类](https://github.com/WhCannon/JavaSE/blob/master/String/README.MD)
  - [对象包装类](https://github.com/WhCannon/JavaSE/blob/master/Wrapper/README.MD)
- - [集合框架](https://github.com/WhCannon/JavaSE/blob/master/Collection/README.MD)
+ - [集合框架Collection](https://github.com/WhCannon/JavaSE/blob/master/Collection/README.MD)
+ - [集合框架Map]()
  - [设计模式](https://github.com/WhCannon/JavaSE/blob/master/Design-pattern/README.MD)
