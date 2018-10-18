@@ -326,8 +326,8 @@ System.out.println(str.toString());
 }
 ```
 泛型的限定：  可以对泛型的类型进行限定  
-? extends E：接收E类型或者E的子类型对象   
-? super E ：接收E类型或者E的父类型  
+? extends E：接收E类型或者E的子类型对象，上限   
+? super E ：接收E类型或者E的父类型，下限  
 示例：
 ```java
 public static void printCollection(Collection<? extends Person> al) {//限定只接收Person及其子类
