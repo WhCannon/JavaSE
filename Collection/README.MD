@@ -10,6 +10,7 @@
    - [TreeSet](#treeset)
 ## [泛型](#泛-型)
    - [泛型类](#泛型类)
+   - [泛型接口](#泛型接口)
 ## [练习](#练-习)
 
 
@@ -264,6 +265,35 @@ public void print(QQ str){
 	// 当方法静态时，不能访问类上定义的泛型。如果静态方法使用泛型，只能将泛型定义在方法上。 
 public static <Y> void method(Y obj){
 	System.out.println("method:"+obj);
+	}
+}
+```
+### 泛型接口
+```java
+//泛型接口，将泛型定义在接口上。 
+interface Inter<T>{
+	public void show(T t);
+}
+
+class InterImpl implements Inter<String>{//实现时明确数据类型
+	public void show(String str){
+		System.out.println("show :"+str);
+	}
+}
+
+class InterImpl2<Q> implements Inter<Q>{//实现时不明确数据类型，继续使用泛型
+	public void show(Q q){
+		System.out.println("show :"+q);
+	}
+}
+
+public class GenericDefine{
+public static void main(String[] args) {
+InterImpl in = new InterImpl();
+in.show("abc");
+
+InterImpl2<Integer> in2 = new InterImpl2<Integer>();
+in2.show(5);
 	}
 }
 ```
