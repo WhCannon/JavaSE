@@ -22,9 +22,15 @@ boolean containsKey(key);
 value get(key);//通过键获取值，如果没有该键返回null。(可以通过返回null，来判断是否包含指定键)   
 	int size(); 获取键值对的个数  
 ### 5、取出所有键值对  
-Set<K> keySet();     返回此映射中键的Set集合  
+#### Set<K> keySet()
+返回此映射中键的Set集合    
 通过keySet方法获取map中所有键的Set集合，再通过Set的迭代器获取到每一个键
-再对每一个键通过map集合的get方法获取其对应的值即可  
+再对每一个键通过map集合的get方法获取其对应的值即可 
+#### Set<Map.Entry<K,V>> entrySet()
+返回此映射包含的映射关系的Set集合  
+该方法将键和值的映射关系作为对象存储到了Set集合中，而这个映射关系的类型就是Map.Entry类型。  
+再通过getKey()和getValue()获取键值对。
+
 
 ```java
 public static void main(String[] args) {
@@ -48,7 +54,7 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 		//获取。 
 		System.out.println("get:"+map.get(6));//null
 		
-    //取出map集合中所有的键值对
+    //取出map集合中所有的键值对1
     Set<Integer> k = map.keySet();
 		Iterator<Integer> it = k.iterator();
 		
@@ -56,6 +62,18 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 			Integer key = it.next();
 			String value = map.get(key);
 			System.out.println(key+":"+value);	
+		}
+		
+	//取出键值对2
+		Set<Map.Entry<Integer, String>> entrySet = map.entrySet();
+		Iterator<Map.Entry<Integer, String>> it = entrySet.iterator();
+
+		while(it.hasNext()){
+			Map.Entry<Integer, String> me = it.next();
+			Integer key = me.getKey();
+			String value = me.getValue();
+			System.out.println(key+"::::"+value);
+			
 		}
 	}
 ```
