@@ -20,7 +20,9 @@ boolean containsKey(key);
 	boolean isEmpty();  
 ### 4、获取  
 value get(key);//通过键获取值，如果没有该键返回null。(可以通过返回null，来判断是否包含指定键)   
-	int size(); 获取键值对的个数  
+int size(); 获取键值对的个数  
+Collection<V> values();返回映射中所有值的collection集合   
+
 ### 5、取出所有键值对  
 #### Set<K> keySet()
 返回此映射中键的Set集合    
@@ -53,6 +55,13 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 		
 		//获取。 
 		System.out.println("get:"+map.get(6));//null
+		
+		//获取所有值
+		Collection<String> values = map.values();
+		Iterator<String> it2 = values.iterator();
+		while(it2.hasNext()){
+			System.out.println(it2.next());
+		}
 		
     //取出map集合中所有的键值对1
     Set<Integer> k = map.keySet();
