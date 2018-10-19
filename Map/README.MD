@@ -93,5 +93,52 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 ## 常见子类
 
 ### HashMap
+内部结构为哈希表，不同步。允许null作为键和值。
+```java
+public class HashMapDemo {
+	public static void main(String[] args) {
+		  //将学生对象和学生的归属地通过键与值存储到map集合中。
+		HashMap<Student,String> hm = new HashMap<Student,String>();
 
+		hm.put(new Student("lisi",38),"北京");
+		hm.put(new Student("zhaoliu",24),"上海");
+		hm.put(new Student("xiaoqiang",31),"沈阳");
+		hm.put(new Student("wangcai",28),"大连");
+		hm.put(new Student("zhaoliu",24),"铁岭");
+		
+//		Set<Student> keySet = hm.keySet();		
+//		Iterator<Student> it = keySet.iterator();
+		Iterator<Student> it = hm.keySet().iterator();
+		while(it.hasNext()){
+			Student key = it.next();
+			String value = hm.get(key);
+			System.out.println(key.getName()+":"+key.getAge()+"---"+value);
+		}
+	}
+}
+
+```
 ### TreeMap
+内部结构为二叉树，不同步。可以对Map集合中的键排序。
+```java
+public class TreeMapDemo {
+	public static void main(String[] args) {
+		TreeMap<Student,String> tm = new TreeMap<Student,String>(new ComparatorByName());
+		
+		tm.put(new Student("lisi",38),"北京");
+		tm.put(new Student("zhaoliu",24),"上海");
+		tm.put(new Student("xiaoqiang",31),"沈阳");
+		tm.put(new Student("wangcai",28),"大连");
+		tm.put(new Student("zhaoliu",24),"铁岭");
+		
+		Iterator<Map.Entry<Student, String>> it = tm.entrySet().iterator();
+		while(it.hasNext()){
+			Map.Entry<Student,String> me = it.next();
+			Student key = me.getKey();
+			String value = me.getValue();
+			
+			System.out.println(key.getName()+":"+key.getAge()+"---"+value);
+		}
+	}
+}
+```
