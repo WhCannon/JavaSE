@@ -92,5 +92,6 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 
 ## 常见子类
 ### HashMap
-
+1
 ### TreeMap
+2
