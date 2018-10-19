@@ -2,8 +2,8 @@
 接口Map<K,V>   也称为双列集合，存储的是键值对，K-键  V-值  
 - ## [常用方法](#常用方法)
 - ## 常见子类
-	 - ### [HashMap](#常见子类-hashmap)
-	 - ### [TreeMap](#常见子类-treemap)
+	 - ### [HashMap](#hashmap)
+	 - ### [TreeMap](#treemap)
 
 
 
@@ -91,6 +91,7 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 ```
 
 ## 常见子类
-### HashMap 
 
-### TreeMap 
+### HashMap
+
+### TreeMap
