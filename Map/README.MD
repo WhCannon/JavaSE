@@ -22,7 +22,7 @@ boolean containsKey(key);
 value get(key);//通过键获取值，如果没有该键返回null。(可以通过返回null，来判断是否包含指定键)   
 	int size(); 获取键值对的个数  
 5、取出所有键值对
-Set<K> keySet();返回此映射中键的Set集合  
+Set<K> keySet();     返回此映射中键的Set集合  
 通过keySet方法获取map中所有键的Set集合，再通过Set的迭代器获取到每一个键
 再对每一个键通过map集合的get方法获取其对应的值即可  
 
