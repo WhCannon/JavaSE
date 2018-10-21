@@ -5,7 +5,7 @@
 	 - [HashMap](#hashmap)
 	 	 - [LinkedHashMap](#linkedhashmap)
 	 - [TreeMap](#treemap)
-- ## [练习](#练习)
+- ## [练习](#练-习)
 
 
 
@@ -148,7 +148,7 @@ public class TreeMapDemo {
 }
 ```
 
-## 练习
+## 练 习
 ### [练习1](#答案1)
 “fdgavcbsacdfs”获取该字符串中每一个字母出现的次数。  
 要求打印结果是：a(2)b(1)...
