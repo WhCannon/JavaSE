@@ -3,7 +3,7 @@
 - ## [常用方法](#常用方法)
 - ## 常见子类
 	 - [HashMap](#hashmap)
-	 	 -[LinkedHashMap](#linkedhashmap)
+	 	 - [LinkedHashMap](#linkedhashmap)
 	 - [TreeMap](#treemap)
 
 
