@@ -3,6 +3,7 @@
 - ## [常用方法](#常用方法)
 - ## 常见子类
 	 - [HashMap](#hashmap)
+	 	 -[LinkedHashMap](#linkedhashmap)
 	 - [TreeMap](#treemap)
 
 
@@ -118,6 +119,9 @@ public class HashMapDemo {
 }
 
 ```
+
+#### LinkedHashMap
+
 ### TreeMap
 内部结构为二叉树，不同步。可以对Map集合中的键排序。
 ```java
