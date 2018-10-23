@@ -5,6 +5,7 @@
 - ## [Math类](#math类)
 - ## [Date类](#date类)
 - ## [DateFormat类](#dateformat类)
+- ## [Calendar类](#calendar类)
 - ## [练习](#练-习) 
 
 
@@ -26,6 +27,38 @@
 ## Date类
 
 ## DateFormat类
+
+## Calendar类
+是一个抽象类。  
+static Calendar getInstance();返回一个Calendar对象  
+get();获取指定的时间信息（Calendar.YEAR等）  
+set();设置时间  
+add();在指定日期上增加时间  
+```java
+public static void main(String[] args) {
+Calendar c = Calendar.getInstance();
+		
+int year = c.get(Calendar.YEAR);
+int month = c.get(Calendar.MONTH)+1;//加1才与现实月份相等
+int day = c.get(Calendar.DAY_OF_MONTH);
+int week = c.get(Calendar.DAY_OF_WEEK);
+		
+System.out.println(year+"年"+month+"月"+day+"日"+getWeek(week));
+}
+		
+public static String getWeek(int i) {
+String[] weeks = {"","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
+return weeks[i];
+}
+		
+public static void showDays(int year) {//判断某一年2月有几天
+		Calendar c = Calendar.getInstance();
+		c.set(year, 2, 1);//将时间设置为指定年份的3月1日
+		c.add(Calendar.DAY_OF_MONTH, -1);//将时间前推1天，就是2月的最后一天
+		showDate(c);
+	}
+```
+
 
 
 ## [练 习1](#答案1)
