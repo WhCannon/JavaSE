@@ -1,6 +1,31 @@
 # 常用API
-## [练习](#练-习) 
+- ## [System类](#system类)
+- ## [Properties类](#propertie类)
+- ## [Runtime类](#runtime类)
+- ## [Math类](#math类)
+- ## [Date类](#date类)
+- ## [DateFormat类](#dateformat类)
+- ## [练习](#练-习) 
 
+
+
+
+
+## System类
+
+## Properties类
+
+
+## Runtime类
+
+
+## Math类
+
+
+
+## Date类
+
+## DateFormat类
 
 
 ## [练 习](#答案1)
