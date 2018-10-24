@@ -4,6 +4,7 @@
    - [FileReader](#filereader)
    - [IO异常的处理](#io异常的处理)
 - ## [字节流](#字节流)
+- ## [练习](#练-习)
 
 
 
@@ -99,3 +100,17 @@ public static void main(String[] args) {
 ```
 
 ## 字节流
+
+
+## 练 习
+### [练习1](#答案1)
+将C盘一个txt文件复制到D盘
+
+
+
+
+
+### 答案1
+```java
+
+```
