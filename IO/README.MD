@@ -22,11 +22,11 @@ private static final String LINE_SEPARATOR = System.getProperty("line.separator"
 		  * 如果文件不存在，会自动创建。如果文件存在，则会被覆盖。
 		 * 
 		  * 如果构造函数中加入true，可以实现对文件进行续写！ */
-		FileWriter fw = new FileWriter("demo.txt",true);//IO异常
+		FileWriter fw = new FileWriter("demo.txt",true);//会发生IO异常
 		
 		// 调用Writer对象中的write(string)方法，写入数据。 
 		fw.write("abcde"+LINE_SEPARATOR+"hahaha");//数据写入到临时存储缓冲区中
-		fw.write("xixi");
+		fw.write("xixi");//写入时也会发生IO异常
 		
 		// 进行刷新，将数据写到文件中。
 		fw.flush();
@@ -37,7 +37,25 @@ private static final String LINE_SEPARATOR = System.getProperty("line.separator"
 }
 
 ```
-
-
+### IO异常的处理
+```java
+public static void main(String[] args) {
+		FileWriter fw = null;//先创建引用型变量
+		try {
+			fw = new FileWriter("k:\\demo.txt");//再在try内进行初始化
+			fw.write("abcde" + LINE_SEPARATOR + "hahaha");
+		} catch (IOException e) {
+			System.out.println(e.toString());
+		} finally {
+			if (fw != null)//如果try中创建对象的路径不存在，会创建失败，fw=null
+				try {
+					fw.close();
+				} catch (IOException e) {
+					// code....
+					throw new RuntimeException("关闭失败");
+				}
+		}
+	}
+```
 
 ## 字节流
