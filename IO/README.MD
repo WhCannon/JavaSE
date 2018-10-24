@@ -1,6 +1,6 @@
 # IO流
 - ## [字符流](#字符流)
-   - ### [FileWriter](#filewriter)
+   - [FileWriter](#filewriter)
 - ## [字节流](#字节流)
 
 
