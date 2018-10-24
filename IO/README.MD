@@ -1,6 +1,7 @@
 # IO流
 - ## [字符流](#字符流)
    - [FileWriter](#filewriter)
+   - [FileReader](#filereader)
    - [IO异常的处理](#io异常的处理)
 - ## [字节流](#字节流)
 
@@ -36,7 +37,45 @@ private static final String LINE_SEPARATOR = System.getProperty("line.separator"
 //	fw.write("haha");// 关闭流之后，不能继续写入。java.io.IOException: Stream closed
 	}
 }
-
+```
+### FileReader
+int read();读取单个字符
+```java
+//需求：读取一个文本文件。将读取到的字符打印到控制台。
+public static void main(String[] args) throws IOException {
+	//创建读取字符数据的流对象。
+	//在创建读取流对象时，必须要明确被读取的文件。一定要确定该文件是存在的。  
+	FileReader fr = new FileReader("demo.txt");
+	//用Reader中的read方法读取单个字符。
+	int ch = fr.read();//read方法返回的是整数（ASCII码表），如果已到达流的末尾，则返回-1
+	System.out.println((char)ch);//转换为字符类型
+	//用循环方式来读取
+	int ch = 0;
+	while((ch=fr.read())!=-1){
+		System.out.println((char)ch);
+		}
+	fr.close();
+	}
+```
+int read(char[] c);将字符读入数组，返回读到的字符数
+```java
+public static void main(String[] args) throws IOException {
+FileReader fr = new FileReader("demo.txt");//假设存储的“abcde”
+char[] buf = new char[3];//先创建字符数组,把数组长度变大,可以一次读完,一般为1024的整数倍
+		
+int num = fr.read(buf);//将读取到的字符存储到数组中。
+System.out.println(num+":"+new String(buf));//3=abc
+int num1 = fr.read(buf);//将读取到的字符存储到数组中。
+System.out.println(num1+":"+new String(buf));//2=dec，读了2个，de覆盖了ab
+int num2 = fr.read(buf);//将读取到的字符存储到数组中。
+System.out.println(num2+":"+new String(buf));//-1=dec，读到结尾，返回-1，数组中还是dec
+	//	改为循环方法
+	int len = 0;
+	while((len=fr.read(buf))!=-1){
+		System.out.println(new String(buf,0,len));//从0读到len处
+	}
+	fr.close();
+}
 ```
 ### IO异常的处理
 ```java
