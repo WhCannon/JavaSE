@@ -141,6 +141,8 @@ public static void main(String[] args) {
 ### [练习1](#答案1)
 将C盘一个文本文件复制到D盘
 
+### [练习2](#答案2)
+自定义一个读取缓冲区。(模拟一个BufferedReader)
 
 
 
@@ -183,3 +185,6 @@ public class CopyTextTest_2 {
 	}
 }
 ```
+
+### 答案2
+
