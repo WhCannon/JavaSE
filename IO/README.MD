@@ -4,6 +4,8 @@
    - [FileReader](#filereader)
    - [IO异常的处理](#io异常的处理)
 - ## [字节流](#字节流)
+   - [BufferedWriter](#bufferedwriter)
+   - [BufferedReader](#bufferedreader)
 - ## [练习](#练-习)
 
 
@@ -78,6 +80,39 @@ System.out.println(num2+":"+new String(buf));//-1=dec，读到结尾，返回-1�
 	fr.close();
 }
 ```
+### BufferedWriter
+
+
+
+### BufferedReader
+
+
+
+
+示例：
+使用缓冲区复制文件
+```java
+public static void main(String[] args) throws IOException {
+
+		FileReader fr = new FileReader("buf.txt");		
+		BufferedReader bufr = new BufferedReader(fr);
+		
+		FileWriter fw = new FileWriter("buf_copy.txt");
+		BufferedWriter bufw = new BufferedWriter(fw);
+		
+		String line = null;
+		while((line=bufr.readLine())!=null){
+			bufw.write(line);
+			bufw.newLine();
+			bufw.flush();
+		}
+		bufw.close();
+		bufr.close();
+	}
+```
+
+
+
 ### IO异常的处理
 ```java
 public static void main(String[] args) {
