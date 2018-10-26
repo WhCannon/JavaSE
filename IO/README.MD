@@ -144,6 +144,9 @@ public static void main(String[] args) {
 ### [练习2](#答案2)
 自定义一个读取缓冲区。(模拟一个BufferedReader)
 
+### [练习3](#答案3)
+复制一个MP3文件
+
 
 
 
@@ -275,4 +278,67 @@ public static void main(String[] args) throws IOException {
 		}
 		bufr.myClose();
 	}
+```
+### 答案3
+```java
+public class CopyMp3Test {
+	public static void main(String[] args) throws IOException {
+		copy_1();
+	}
+	
+	public static void copy_1() throws IOException {
+		//自定义一个缓冲区
+		FileInputStream fis = new FileInputStream("c:\\0.mp3");		
+		FileOutputStream fos = new FileOutputStream("c:\\1.mp3");
+		
+		byte[] buf = new byte[1024];
+		int len = 0;
+		while((len=fis.read(buf))!=-1){
+			fos.write(buf,0,len);
+		}
+		fos.close();
+		fis.close();
+	}
+	
+	public static void copy_2() throws IOException {
+		//使用自带的缓冲区
+		FileInputStream fis = new FileInputStream("c:\\0.mp3");	
+		BufferedInputStream bufis = new BufferedInputStream(fis);
+		
+		FileOutputStream fos = new FileOutputStream("c:\\2.mp3");
+		BufferedOutputStream bufos = new BufferedOutputStream(fos);
+		
+		int ch = 0;
+		while((ch=bufis.read())!=-1){
+			bufos.write(ch);
+		}
+		bufos.close();
+		bufis.close();
+	}
+	
+	//建一个数组，能全部存进去。不建议。 
+	public static void copy_3() throws IOException {
+		FileInputStream fis = new FileInputStream("c:\\0.mp3");		
+		FileOutputStream fos = new FileOutputStream("c:\\3.mp3");
+		
+		byte[] buf = new byte[fis.available()];
+		fis.read(buf);
+		fos.write(buf);
+		fos.close();
+		fis.close();
+	}
+	
+//	读一个写一个。千万不要用，效率没有！
+	public static void copy_4() throws IOException {
+		FileInputStream fis = new FileInputStream("c:\\0.mp3");		
+		FileOutputStream fos = new FileOutputStream("c:\\4.mp3");
+		
+		int ch = 0;
+		while((ch =fis.read())!=-1){
+			fos.write(ch);
+		}
+		fos.close();
+		fis.close();
+	}
+}
 ```
