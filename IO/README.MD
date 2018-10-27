@@ -408,9 +408,9 @@ public class TransStreamDemo {
 }
 
 可将代码简化如下（重点）：
-BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));//System.in可以变为其他的输入流
 		
-BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));
+BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));//System.out可以变为其他的输出流
 //可以将键盘录入的数据写到一个文件中
 BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("b.txt")));
 		
