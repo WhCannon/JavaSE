@@ -376,4 +376,34 @@ public class CopyMp3Test {
 	
 上面的读取方法其实就是一次读一行，但是System.in不具备readLine()方法。
 System.in是字节流，而readLine()方法是字符流的方法。
+因此要先使用转换流，将字节流转换为字符流来操作。
+
+public class TransStreamDemo {
+
+	public static void main(String[] args) throws IOException {
+		//字节流。 
+		InputStream in = System.in;
+		
+		//将字节转成字符的桥梁--转换流。 
+		InputStreamReader isr = new InputStreamReader(in);
+		
+		//装饰字符流。
+		BufferedReader bufr = new BufferedReader(isr);
+		
+		//字符转为字节(System.out最终输出的是字节,属于OutputStream的子体系)
+		OutputStream out = System.out;
+		OutputStreamWriter osw = new OutputStreamWriter(out);
+		BufferedWriter  bufw = new BufferedWriter(osw);//提高效率
+		
+		String line = null;
+		while((line=bufr.readLine())!=null){
+			if("over".equals(line))
+				break;
+
+			bufw.write(line.toUpperCase());
+			bufw.newLine();
+			bufw.flush();
+		}		
+	}
+}
 ```
