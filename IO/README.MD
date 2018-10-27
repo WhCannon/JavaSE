@@ -2,6 +2,7 @@
 - ## [字符流](#字符流)
    - [FileWriter](#filewriter)
    - [FileReader](#filereader)
+   - [缓冲区](#缓冲区)
    - [转换流](#转换流)
    - [IO异常的处理](#io异常的处理)
 - ## [字节流](#字节流)
@@ -111,6 +112,80 @@ public static void main(String[] args) throws IOException {
 		bufr.close();
 	}
 ```
+
+### 缓冲区
+缓冲区对象操作的都是缓冲区内的数据。
+
+#### BufferedWriter
+newLine();写入一个行分隔符
+```java
+public class BufferedWriterDemo {
+
+private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+	public static void main(String[] args) throws IOException {
+		
+		FileWriter fw = new FileWriter("buf.txt");
+		
+		//为了提高写入的效率。使用了字符流的缓冲区。
+		//创建了一个字符写入流的缓冲区对象，并和指定要被缓冲的流对象相关联
+		BufferedWriter bufw = new BufferedWriter(fw);
+		
+		//使用缓冲区的写入方法将数据先写入到缓冲区中。
+		bufw.write("abcdefq"+LINE_SEPARATOR+"hahahha");
+		bufw.newLine();//只有BufferedWriter具备newLine方法
+		bufw.write("heheheheh");
+		//使用缓冲区的刷新方法将数据刷目的地中。
+		bufw.flush();
+//		改为循环方式
+		for(int x=1; x<=4; x++){
+			bufw.write("abcdef"+x);
+			bufw.newLine();
+			bufw.flush();
+		}
+		//关闭缓冲区。其实关闭的就是被缓冲的流对象。
+		bufw.close();
+	}
+}
+
+```
+
+#### BufferedReader
+实现字符、数组和行(根据行分隔符判断有几行)的高效读取,readLine()
+```java
+public static void main(String[] args) throws IOException {
+		FileReader fr = new FileReader("buf.txt");
+		BufferedReader bufr = new BufferedReader(fr);
+		String line = null;
+		while((line=bufr.readLine())!=null){
+			System.out.println(line);
+		}
+		bufr.close();
+	}
+
+```
+
+#### LineNumberReader
+setLineNumber(int);设置行号  
+getLineNumber();获取行号，号随数据读取在每个行结束符处递增。
+```java
+public static void main(String[] args) throws IOException {
+		FileReader fr = new FileReader("IO流_2.txt");
+		LineNumberReader lnr = new LineNumberReader(fr);
+		
+		String line = null;
+		lnr.setLineNumber(100);
+		while((line=lnr.readLine())!=null){
+			System.out.println(lnr.getLineNumber()+":"+line);
+		}
+		lnr.close();
+	}
+
+```
+
+
+
+
+
 ### 转换流
 #### InputStreamReader
 
