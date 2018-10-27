@@ -8,7 +8,7 @@
 - ## [字节流](#字节流)
    - [BufferedWriter](#bufferedwriter)
    - [BufferedReader](#bufferedreader)
-- ## [File类](#file类)
+- ## [File类](#file-类)
 
 - ## [练习](#练-习)
 
@@ -260,7 +260,7 @@ public static void main(String[] args) {
 
 
 
-## File类
+## File 类
 将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
 public static final String separator; 与系统相关的默认名称分隔符。  
 该字段被初始化为包含系统属性值file.separator的第一个字符。在UNIX系统上，该字段的值为'/'，在Microsoft Windows系统上是'\\'。  
