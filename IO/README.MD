@@ -2,6 +2,7 @@
 - ## [字符流](#字符流)
    - [FileWriter](#filewriter)
    - [FileReader](#filereader)
+   - [转换流](#转换流)
    - [IO异常的处理](#io异常的处理)
 - ## [字节流](#字节流)
    - [BufferedWriter](#bufferedwriter)
@@ -110,7 +111,46 @@ public static void main(String[] args) throws IOException {
 		bufr.close();
 	}
 ```
+### 转换流
+#### InputStreamReader
+```java
+是字节流通向字符流的桥梁，使用指定的charset（字符集编码表）读取字节并将其解码为字符。为了提高效率，可以考虑在BufferedReader内包装InputStreamReader,如：
+BufferedReader in=new BufferedReader(new InputStreamReader(System.in))；
+```
 
+#### OutputStreamWriter
+是字符流转向字节流的桥梁，使用指定的charset（字符集编码表）将要写入流中的字符编码成字节。
+
+#### [示例](#练习4)
+
+#### 转换流的编码解码
+```java
+public static void writeText_2() throws IOException {
+OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("gbk_3.txt"),"GBK");
+FileWriter fw = new FileWriter("gbk_1.txt");
+/* 这两句代码的功能是等同的。 
+* FileWriter：其实就是转换流指定了本机默认码表的体现。作为转换流的子类对象，可以方便操作文本文件。
+*   简单说，FileWriter就是操作文件的字节流+本机默认的编码表。这是按照默认码表来操作文件的便捷类。
+* 如果操作文本文件需要明确具体的编码。FileWriter就不行了，必须用转换流。 */
+		osw.write("你好");
+		osw.close();
+	}
+public static void writeText_3() throws IOException {
+		//指定一个编码表进行编码
+		OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("u8_1.txt"),"UTF-8");
+		osw.write("你好");
+		osw.close();
+	}
+同理，可以按照指定的码表进行解码，来读取。
+public static void readText_2() throws IOException, FileNotFoundException {
+		InputStreamReader isr = new InputStreamReader(new FileInputStream("gbk_1.txt"),"utf-8");
+		char[] buf = new char[10];
+		int len = isr.read(buf);
+		String str = new String(buf,0,len);
+		System.out.println(str);
+		isr.close();
+}
+```
 
 
 ### IO异常的处理
