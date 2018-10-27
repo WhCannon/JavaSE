@@ -8,6 +8,8 @@
 - ## [字节流](#字节流)
    - [BufferedWriter](#bufferedwriter)
    - [BufferedReader](#bufferedreader)
+- ## [File类](#file类)
+
 - ## [练习](#练-习)
 
 
@@ -252,6 +254,59 @@ public static void main(String[] args) {
 ```
 
 ## 字节流
+
+
+
+
+
+
+## File类
+将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
+public static final String separator; 与系统相关的默认名称分隔符。  
+该字段被初始化为包含系统属性值file.separator的第一个字符。在UNIX系统上，该字段的值为'/'，在Microsoft Windows系统上是'\\'。  
+public static final String pathSeparator;与系统相关的路径分隔符。  
+该字段被初始化为包含系统属性值path.separator的第一个字符。此字符用于将路径列表中给出的文件序列中的文件名分隔。在UNIX系统上，这个字符是':';在Microsoft Windows系统上，它是';'。 
+
+### 构造方法
+可以将一个已存在的，或者不存在的文件或者目录封装成file对象。
+```java
+File f1 = new File("c:\\a.txt");
+File f2 = new File("c:\\","a.txt");
+		
+File f = new File("c:\\");
+File f3 = new File(f,"a.txt");
+//分隔符的表示		
+File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a.txt
+```
+
+
+### 常用方法
+1、获取
+1.1获取文件名称
+1.2获取文件路径
+1.3获取文件大小
+1.4获取文件修改时间
+```java
+		File file = new File("a.txt");
+//		File file = new File("E:\\java0331\\day22e\\a.txt");//绝对路径
+		
+		String name = file.getName();
+		
+		String absPath = file.getAbsolutePath();//绝对路径。
+		String path = file.getPath();//相对路径
+		
+		long len = file.length();//文件大小
+		
+		long time = file.lastModified();//最后修改时间
+		Date date = new Date(time);
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);
+		String str_time = dateFormat.format(date);
+```
+
+
+
+
+
 
 
 ## 练 习
