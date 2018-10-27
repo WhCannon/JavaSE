@@ -406,4 +406,21 @@ public class TransStreamDemo {
 		}		
 	}
 }
+
+可将代码简化如下（重点）：
+BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+		
+BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(System.out));
+//可以将键盘录入的数据写到一个文件中
+BufferedWriter bufw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("b.txt")));
+		
+String line = null;
+	while((line=bufr.readLine())!=null){
+		if("over".equals(line))
+			break;
+		bufw.write(line.toUpperCase());
+		bufw.newLine();
+		bufw.flush();
+	}
+
 ```
