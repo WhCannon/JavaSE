@@ -281,11 +281,11 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 
 
 ### 常用方法
-1、获取
-1.1获取文件名称
-1.2获取文件路径
-1.3获取文件大小
-1.4获取文件修改时间
+1、获取  
+	1.1获取文件名称  
+	1.2获取文件路径  
+	1.3获取文件大小  
+	1.4获取文件修改时间  
 ```java
 		File file = new File("a.txt");
 //		File file = new File("E:\\java0331\\day22e\\a.txt");//绝对路径
