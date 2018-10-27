@@ -374,5 +374,6 @@ public class CopyMp3Test {
 		}
 	}
 	
-上面的读取方法其实就是一次读一行
+上面的读取方法其实就是一次读一行，但是System.in不具备readLine()方法。
+System.in是字节流，而readLine()方法是字符流的方法。
 ```
