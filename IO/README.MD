@@ -114,7 +114,8 @@ public static void main(String[] args) throws IOException {
 ### 转换流
 #### InputStreamReader
 ```java
-是字节流通向字符流的桥梁，使用指定的charset（字符集编码表）读取字节并将其解码为字符。为了提高效率，可以考虑在BufferedReader内包装InputStreamReader,如：
+是字节流通向字符流的桥梁，使用指定的charset（字符集编码表）读取字节并将其解码为字符。
+为了提高效率，可以考虑在BufferedReader内包装InputStreamReader,如：
 BufferedReader in=new BufferedReader(new InputStreamReader(System.in))；
 ```
 
