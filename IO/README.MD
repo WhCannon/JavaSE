@@ -302,7 +302,23 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG,DateFormat.LONG);
 		String str_time = dateFormat.format(date);
 ```
-
+2、创建与删除  
+```java
+		File file = new File("file.txt");
+		//文件的创建
+		//和输出流不一样，如果文件不存在则创建，返回true；如果文件存在就不创建，返回false。 
+		boolean b = file.createNewFile();		
+		//删除
+		boolean b = file.delete();
+		file.deleteOnExit();//在虚拟机退出时删除
+		
+		File dir = new File("abc");
+		boolean b = dir.mkdir();//make directory创建目录
+		
+		File dir = new File("abc\\q\\e\\c\\z\\r\\w\\y\\f\\e\\g\\s");
+		dir.mkdirs();//创建多级目录
+		System.out.println(dir.delete());//删除了s目录
+```
 
 
 
