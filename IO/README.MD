@@ -363,6 +363,26 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 			System.out.println(name);
 		}
 ```
+* list过滤器
+```java
+定义一个过滤器
+public class SuffixFilter implements FilenameFilter {
+	private String suffix ;
+	public SuffixFilter(String suffix) {
+		super();
+		this.suffix = suffix;
+	}
+	public boolean accept(File dir, String name) {
+		return name.endsWith(suffix);
+	}
+}
+public static void listDemo_2() {
+		File dir = new File("c:\\");
+		String[] names = dir.list(new SuffixFilter(".txt"));
+		for(String name : names){
+			System.out.println(name);
+		}
+```
 
 ## 练 习
 ### [练习1](#答案1)
