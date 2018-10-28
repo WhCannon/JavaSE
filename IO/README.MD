@@ -326,7 +326,14 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		System.out.println(f.isFile());//是文件吗
 		System.out.println(f.isDirectory());//是目录吗
 ```
-
+4、重命名
+```java
+	//重命名
+		File f1 = new File("c:\\9.mp3");
+		File f2 = new File("d:\\aa.mp3");//路径不同时，会将文件移至指定的路径，并重命名
+		boolean b = f1.renameTo(f2);
+		System.out.println("b="+b);
+```
 
 
 
