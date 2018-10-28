@@ -319,7 +319,13 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		dir.mkdirs();//创建多级目录
 		System.out.println(dir.delete());//删除了s目录
 ```
-
+3、判断
+```java
+		File f = new File("a.txt");
+		boolean b = f.exists();//是否存在，最好先判断是否存在。
+		System.out.println(f.isFile());//是文件吗
+		System.out.println(f.isDirectory());//是目录吗
+```
 
 
 
