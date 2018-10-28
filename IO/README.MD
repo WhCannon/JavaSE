@@ -334,8 +334,18 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		boolean b = f1.renameTo(f2);
 		System.out.println("b="+b);
 ```
-
-
+5、获取系统根目录
+```java
+		//获取系统根目录C、D、E...盘
+		File[] files  = File.listRoots();		
+		for(File file : files){
+			System.out.println(file);
+		}
+		
+		File file = new File("d:\\");
+		System.out.println("getFreeSpace:"+file.getFreeSpace());//分区中未分配的字节数
+		System.out.println("getTotalSpace:"+file.getTotalSpace());//指定分区的大小
+```
 
 
 ## 练 习
