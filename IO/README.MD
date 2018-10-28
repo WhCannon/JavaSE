@@ -334,7 +334,8 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		boolean b = f1.renameTo(f2);
 		System.out.println("b="+b);
 ```
-5、获取系统根目录
+5、其他
+* 获取系统根目录
 ```java
 		//获取系统根目录C、D、E...盘
 		File[] files  = File.listRoots();		
@@ -346,7 +347,22 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 		System.out.println("getFreeSpace:"+file.getFreeSpace());//分区中未分配的字节数
 		System.out.println("getTotalSpace:"+file.getTotalSpace());//指定分区的大小
 ```
-
+* list方法
+```java
+		/* 获取当前目录下的文件以及文件夹的名称，包含隐藏文件。
+		 * 调用list方法的File对象中封装的必须是目录。
+		 * 否则会发生NullPointerException
+		 * 如果访问的系统级目录也会发生空指针异常。
+		 * 如果目录存在但是没有内容，会返回一个数组，但是长度为0.
+		 */
+		File file = new File("c:\\");
+		String[] names = file.list();
+		System.out.println(names.length);
+		
+		for(String name : names){
+			System.out.println(name);
+		}
+```
 
 ## 练 习
 ### [练习1](#答案1)
