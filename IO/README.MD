@@ -397,6 +397,8 @@ public static void listDemo_2() {
 ### [练习4](#答案4)
 获取用户键盘录入的数据， 并将数据变成大写显示在控制台上，如果用户输入的是over，结束键盘录入
 
+### [练习5](#答案5)
+
 
 ### 答案1
 ```java
@@ -669,5 +671,9 @@ String line = null;
 		bufw.newLine();
 		bufw.flush();
 	}
+
+```
+### 答案5
+```java
 
 ```
