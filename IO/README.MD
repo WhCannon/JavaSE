@@ -680,10 +680,10 @@ String line = null;
 public class FileTest {
 	public static void main(String[] args) {
 		File dir = new File("e:\\demodir");
-		listAll(dir,0);
+		listAll(dir);
 	}
 //获取指定目录下当前的所有文件夹或者文件对象
-	public static void listAll(File dir,int level) {
+	public static void listAll(File dir) {
 		System.out.println(getSpace(level)+dir.getAbsolutePath());
 
 		File[] files = dir.listFiles();
@@ -695,6 +695,36 @@ public class FileTest {
 			else
 				System.out.println(getSpace(level)+files[x].getAbsolutePath());
 		}	
+	}
+}
+
+可以对listAll方法进行改进，显示目录的层级
+public class FileTest {
+	public static void main(String[] args) {
+		File dir = new File("e:\\demodir");
+		listAll(dir,0);
+	}
+
+	public static void listAll(File dir,int level) {
+		System.out.println(getSpace(level)+dir.getName());
+		level++;
+		File[] files = dir.listFiles();
+		
+		for(int x=0; x<files.length; x++){
+			if(files[x].isDirectory()){
+				listAll(files[x],level);
+			}
+			else
+				System.out.println(getSpace(level)+files[x].getName());
+		}	
+	}
+
+	private static String getSpace(int level) {
+		StringBuilder sb = new StringBuilder();
+		for(int x=0; x<level; x++){
+			sb.insert(0,"|--");
+		}
+		return sb.toString();
 	}
 }
 ```
