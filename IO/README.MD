@@ -677,5 +677,24 @@ String line = null;
 ```
 ### 答案5
 ```java
+public class FileTest {
+	public static void main(String[] args) {
+		File dir = new File("e:\\demodir");
+		listAll(dir,0);
+	}
+//获取指定目录下当前的所有文件夹或者文件对象
+	public static void listAll(File dir,int level) {
+		System.out.println(getSpace(level)+dir.getAbsolutePath());
 
+		File[] files = dir.listFiles();
+		
+		for(int x=0; x<files.length; x++){//使用了递归的思想
+			if(files[x].isDirectory()){
+				listAll(files[x]);
+			}
+			else
+				System.out.println(getSpace(level)+files[x].getAbsolutePath());
+		}	
+	}
+}
 ```
