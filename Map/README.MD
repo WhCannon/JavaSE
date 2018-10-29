@@ -98,8 +98,29 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 
 ### HashTable
 
-#### Porperties
-
+#### Properties
+```java
+public static void propertiesDemo(){
+		//创建一个Properties集合。
+		Properties prop  = new Properties();
+		
+		//存储元素。 
+		prop.setProperty("zhangsan","30");
+		prop.setProperty("lisi","31");
+		prop.setProperty("wangwu","36");
+		prop.setProperty("zhaoliu","20");
+		
+		//修改元素。 
+		prop.setProperty("wangwu","26");
+		
+		//取出所有元素。
+		Set<String> names = prop.stringPropertyNames();
+		for(String name : names){
+			String value = prop.getProperty(name);//获取值
+			System.out.println(name+":"+value);
+		}
+	}
+```
 
 
 ### HashMap
