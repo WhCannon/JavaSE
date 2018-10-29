@@ -173,6 +173,36 @@ public static void methodDemo_4() throws IOException {
 		bufr.close();
 	}
 
+对已有的配置文件中的信息进行修改
+/* 步骤：
+	 * 读取这个文件。
+	 * 将这个文件中的键值数据存储到集合中。
+	 * 再通过集合对数据进行修改。
+	 * 再通过流将修改后的数据存储到文件中。 
+	 */
+	public static void test() throws IOException{
+		//读取这个文件。
+		File file = new File("info.txt");
+		if(!file.exists()){
+			file.createNewFile();
+		}
+		FileReader fr = new FileReader(file);
+		//创建集合存储配置信息。
+		Properties prop = new Properties();
+		
+		//将流中信息存储到集合中。
+		prop.load(fr);
+		prop.list(System.out);
+		
+		//修改
+		prop.setProperty("wangwu", "16");
+		FileWriter fw = new FileWriter(file);
+		prop.store(fw,"");
+		
+		fw.close();
+		fr.close();
+	}
+
 ```
 
 
