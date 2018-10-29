@@ -143,8 +143,35 @@ prop.list(System.out);
 		prop.store(fos, "info");
 		fos.close();
 	}
-
-
+	
+获取文件中的键值对数据
+public static void methodDemo_4() throws IOException {	
+		Properties prop  = new Properties();
+		
+		//集合中的数据来自于一个文件。 
+		//注意；必须要保证该文件中的数据是键值对。
+		//需要使用到读取流（字节流、字符流均可） 
+		FileInputStream fis = new FileInputStream("info.txt");
+		
+		//使用load方法。 
+		prop.load(fis);
+		prop.list(System.out);
+	}
+	//load方法原理。
+	public static void myLoad() throws IOException{
+		Properties prop  = new Properties();
+		BufferedReader bufr = new BufferedReader(new FileReader("info.txt"));
+		
+		String line = null;
+		while((line=bufr.readLine())!=null){
+			if(line.startsWith("#"))
+				continue;
+			String[] arr = line.split("=");
+			prop.setProperty(arr[0], arr[1]);
+		}
+		prop.list(System.out);
+		bufr.close();
+	}
 
 ```
 
