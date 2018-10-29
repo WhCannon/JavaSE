@@ -363,7 +363,7 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 			System.out.println(name);
 		}
 ```
-list只能获取目录或文件的名称，只能对名称进行操作。  
+list只能获取文件夹或文件的名称，只能对名称进行操作。  
 listFiles获取的是File对象，可以进行其他的操作。
 * list过滤器
 ```java
