@@ -126,6 +126,26 @@ Properties prop  = new Properties();
 prop = System.getProperties();
 prop.list(System.out);
 
+将配置信息存储到硬盘上（持久化）
+	public static void methodDemo_3() throws IOException {
+		Properties prop  = new Properties();
+		//存储元素。 
+		prop.setProperty("zhangsan","30");
+		prop.setProperty("lisi","31");
+		prop.setProperty("wangwu","36");
+		prop.setProperty("zhaoliu","20");
+		
+	//  想要将这些集合中的字符串键值信息持久化存储到文件中，需要关联输出流。
+	//	字节流或字符流均可
+		FileOutputStream fos = new FileOutputStream("info.txt");
+		
+		//将集合中数据存储到文件中，使用store方法，需要添加描述信息。
+		prop.store(fos, "info");
+		fos.close();
+	}
+
+
+
 ```
 
 
