@@ -363,10 +363,12 @@ File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt"); //c:\abc\a
 			System.out.println(name);
 		}
 ```
+list只能获取目录或文件的名称，只能对名称进行操作。  
+listFiles获取的是File对象，可以进行其他的操作。
 * list过滤器
 ```java
 定义一个过滤器
-public class SuffixFilter implements FilenameFilter {
+public class SuffixFilter implements FilenameFilter {1
 	private String suffix ;
 	public SuffixFilter(String suffix) {
 		super();
@@ -398,7 +400,7 @@ public static void listDemo_2() {
 获取用户键盘录入的数据， 并将数据变成大写显示在控制台上，如果用户输入的是over，结束键盘录入
 
 ### [练习5](#答案5)
-对指定的目录，列出其包含的所有内容（包含子目录中的内容），深度遍历。
+对指定的目录，列出其包含的所有内容（包含子目录中的内容），即深度遍历。
 
 ### 答案1
 ```java
