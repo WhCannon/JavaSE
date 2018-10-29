@@ -120,6 +120,12 @@ public static void propertiesDemo(){
 			System.out.println(name+":"+value);
 		}
 	}
+	
+list(PrintStream out);将属性列表输出到指定的输出流
+Properties prop  = new Properties();
+prop = System.getProperties();
+prop.list(System.out);
+
 ```
 
 
