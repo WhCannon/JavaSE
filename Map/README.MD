@@ -144,7 +144,7 @@ prop.list(System.out);
 		fos.close();
 	}
 	
-获取文件中的键值对数据
+获取文件中的配置信息（键值对数据）
 public static void methodDemo_4() throws IOException {	
 		Properties prop  = new Properties();
 		
