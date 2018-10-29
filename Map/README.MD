@@ -2,6 +2,8 @@
 接口Map<K,V>   也称为双列集合，存储的是键值对，K-键  V-值  
 - ## [常用方法](#常用方法)
 - ## 常见子类
+	 - [HashTable](#hashtable)
+	 	- [Properties](#properties)
 	 - [HashMap](#hashmap)
 	 	 - [LinkedHashMap](#linkedhashmap)
 	 - [TreeMap](#treemap)
@@ -93,6 +95,12 @@ public static void method(Map<Integer,String> map){//存储学号和姓名
 ```
 
 ## 常见子类
+
+### HashTable
+
+#### Porperties
+
+
 
 ### HashMap
 内部结构为哈希表，不同步。允许null作为键和值。
