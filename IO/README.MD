@@ -8,6 +8,7 @@
 - ## [字节流](#字节流)
    - [FileInputStream](#fileinputstream)
    - [FileOutputStream](#fileoutputstream)
+   - [标准输入输出流](#标准输入输出流)
    - [序列流](#sequenceinputstream)
    - [对象输入输出流](#object流)
    - [管道流](#管道流)
@@ -282,6 +283,23 @@ public class ByteStreamDemo {
 
 ### FileOutputStream
 
+
+
+### 标准输入输出流
+System类中的静态对象：
+* public static final InputStream in（此流默认对应于键盘输入）
+* public static final PrintStream out（默认对应于显示器）
+```java
+public static void readKey() throws IOException {
+		InputStream in = System.in;
+		int ch = in.read();//阻塞式方法，没有数据就会一直等待		
+		System.out.println(ch);
+		int ch1 = in.read();//阻塞式方法。		
+		System.out.println(ch1);
+		//	in.close();//一般不关闭，随系统的消失而消失
+	}
+
+```
 
 ### 管道流
 输入输出可以直接进行连接，通过结合线程使用。  
