@@ -8,6 +8,7 @@
 - ## [字节流](#字节流)
    - [FileInputStream](#fileinputstream)
    - [FileOutputStream](#fileoutputstream)
+   - [管道流](#管道流)
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
@@ -265,8 +266,61 @@ public static void main(String[] args) {
 ### FileOutputStream
 
 
+### 管道流
+输入输出可以直接进行连接，通过结合线程使用。  
+PipedInputStream、PipedOutputStream  
+通常，数据由某个线程从PipedInputStream对象读取，并由其他线程将其写入到相应的PipedOutputStream，  
+不建议对这两个对象使用单线程，这样可能会导致死锁。  
+```java
+connect(PipedOutputStream p); 将管道流的输入与输出连接
+public class PipedStream {
+	public static void main(String[] args) throws IOException {
 
+		PipedInputStream input = new PipedInputStream();
+		PipedOutputStream output = new PipedOutputStream();
+		
+		input.connect(output);
+		
+		new Thread(new Input(input)).start();
+		new Thread(new Output(output)).start();
+	}
+}
 
+class Input implements Runnable{
+	
+	private PipedInputStream in;
+	Input(PipedInputStream in){
+		this.in = in;
+	}
+	public void run(){
+		try {
+			byte[] buf = new byte[1024];
+			int len = in.read(buf);//阻塞方法，有数据才能读，否则就一直等待
+			String s = new String(buf,0,len);
+			System.out.println("s="+s);
+			in.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
+
+class Output implements Runnable{
+	private PipedOutputStream out;
+	Output(PipedOutputStream out){
+		this.out = out;
+	}
+	public void run(){
+		try {
+			Thread.sleep(5000);
+			out.write("hi，管道来了！".getBytes());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
+
+```
 
 ## File 类
 将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
