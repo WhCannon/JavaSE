@@ -11,6 +11,7 @@
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
+- ## [对象输入输出流](#object流)
 
 - ## [练习](#练-习)
 
@@ -460,6 +461,18 @@ public static void main(String[] args) throws IOException {
 		}
 		fos.close();
 		sis.close();
+	}
+```
+
+## Object流
+### ObjectOutputStream
+```java
+public static void writeObj() throws IOException, IOException {
+		
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("obj.object"));
+		//对象序列化。  被序列化的对象必须实现Serializable接口。 
+		oos.writeObject(new Person("小强",30));
+		oos.close();
 	}
 ```
 
