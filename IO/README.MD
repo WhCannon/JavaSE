@@ -12,7 +12,7 @@
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
 - ## [对象输入输出流](#object流)
-- ## [RandomAccessFile](#randomaccessfile)
+- ## [RandomAccessFile](#randomaccessfile随机读取文件)
 
 
 - ## [练习](#练-习)
@@ -505,7 +505,7 @@ public static void readObj() throws IOException, ClassNotFoundException {
 private static final long serialVersionUID = 123L;
 ```
 
-## RandomAccessFile
+## RandomAccessFile随机读取文件
 随机访问文件，不属于IO体系中的子类，自身具备读写的方法。多线程写入经常用。  
 特点：
 * 1、该对象即能读，又能写；
