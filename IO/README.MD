@@ -478,7 +478,11 @@ public static void writeObj() throws IOException, IOException {
 		oos.writeObject(new Person("小强",30));
 		oos.close();
 	}
+	public class Person implements Serializable/*标记接口*/
 ```
+静态数据不能被序列化。  
+transient：非静态数据不想被序列化可以使用这个关键字修饰  
+
 * ObjectInputStream 
 对以前使用ObjectOutputStream写入的对象进行反序列化。
 ```java
@@ -491,7 +495,13 @@ public static void readObj() throws IOException, ClassNotFoundException {
 		ois.close();
 	}
 ```
-
+* 序列化接口Serializable
+```java
+用于给被序列化的类加入ID号，反序列化时用于判断类和对象是否和原来同一个版本。
+如果使用默认计算的ID，则可能由于编译器的不同，导致反序列化ID时无法匹配。
+因此，最好自己声明一个ID，格式如下：
+private static final long serialVersionUID = 123L;
+```
 
 ## 练 习
 ### [练习1](#答案1)
