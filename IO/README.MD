@@ -12,6 +12,7 @@
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
 - ## [对象输入输出流](#object流)
+- ## [RandomAccessFile](#randomaccessfile)
 
 - ## [练习](#练-习)
 
@@ -502,6 +503,52 @@ public static void readObj() throws IOException, ClassNotFoundException {
 因此，最好自己声明一个ID，格式如下：
 private static final long serialVersionUID = 123L;
 ```
+
+## RandomAccessFile
+随机访问文件，不属于IO体系中的子类，自身具备读写的方法。多线程写入经常用。  
+特点：
+* 1、该对象即能读，又能写；
+* 2、该对象内部维护了一个byte数组，并通过指针可以操作数组中的元素；
+* 3、可以通过getFilePointer方法获取指针的位置，通过seek方法设置指针的位置，来达到随机读写的功能；
+* 4、其实该对象就是将字节输入流和输出流进行了封装； 
+* 5、该对象的源或者目的只能是文件，通过构造函数就可以看出。
+示例：
+```java
+//使用RandomAccessFile对象写入一些人员信息，比如姓名和年龄。
+	public static void writeFile() throws IOException{
+		//	如果文件不存在，则创建，如果文件存在，不创建
+		RandomAccessFile raf = new RandomAccessFile("ranacc.txt","rw");
+		
+		raf.write("张三".getBytes());
+		raf.writeInt(97);
+		raf.write("小强".getBytes());
+		raf.writeInt(99);
+		raf.close();
+		
+//往指定位置写入数据。
+RandomAccessFile raf = new RandomAccessFile("ranacc.txt", "rw");
+		raf.seek(3*8);
+		raf.write("哈哈".getBytes());
+		raf.writeInt(108);
+		raf.close();
+	}
+public static void readFile() throws IOException {
+		RandomAccessFile raf = new RandomAccessFile("ranacc.txt", "r");
+		//通过seek设置指针的位置,可以从指定位置开始读（可叫做随机读取）
+		raf.seek(1*8);
+		byte[] buf = new byte[4];
+		raf.read(buf);
+		
+		String name = new String(buf);
+		int age = raf.readInt();
+		
+		System.out.println("name="+name);
+		System.out.println("age="+age);
+		System.out.println("pos:"+raf.getFilePointer());
+		raf.close();
+}
+```
+
 
 ## 练 习
 ### [练习1](#答案1)
