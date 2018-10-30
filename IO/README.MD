@@ -8,12 +8,12 @@
 - ## [字节流](#字节流)
    - [FileInputStream](#fileinputstream)
    - [FileOutputStream](#fileoutputstream)
+   - [序列流](#sequenceinputstream)
+   - [对象输入输出流](#object流)
    - [管道流](#管道流)
    - [DateStream](#datestream)
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
-- ## [序列流](#sequenceinputstream)
-- ## [对象输入输出流](#object流)
 - ## [RandomAccessFile](#randomaccessfile随机读取文件)
 
 
