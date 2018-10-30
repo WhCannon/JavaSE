@@ -92,36 +92,6 @@ System.out.println(num2+":"+new String(buf));//-1=dec，读到结尾，返回-1�
 	fr.close();
 }
 ```
-### BufferedWriter
-
-
-
-### BufferedReader
-
-
-
-
-示例：
-使用缓冲区复制文件
-```java
-public static void main(String[] args) throws IOException {
-
-		FileReader fr = new FileReader("buf.txt");		
-		BufferedReader bufr = new BufferedReader(fr);
-		
-		FileWriter fw = new FileWriter("buf_copy.txt");
-		BufferedWriter bufw = new BufferedWriter(fw);
-		
-		String line = null;
-		while((line=bufr.readLine())!=null){
-			bufw.write(line);
-			bufw.newLine();
-			bufw.flush();
-		}
-		bufw.close();
-		bufr.close();
-	}
-```
 
 ### 缓冲区
 缓冲区对象操作的都是缓冲区内的数据。
