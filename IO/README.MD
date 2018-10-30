@@ -262,8 +262,53 @@ public static void main(String[] args) {
 ```
 
 ## 字节流
+顶层抽象父类：InputStream,OutputStream
 ### FileInputStream
+```java
+public class ByteStreamDemo {
+	public static void main(String[] args) throws IOException {
+		demo_read();
+	}
+		
+	public static void demo_read() throws IOException {
+		
+		//1，创建一个读取流对象。和指定文件关联。
+		FileInputStream fis = new FileInputStream("bytedemo.txt");
+		
+		//一次读取一个字节。
+		int ch = fis.read();		
+		//改为循环
+		int ch = 0;
+		while((ch=fis.read())!=-1){
+			System.out.println((char)ch);
+		}
+		
+//		System.out.println(fis.available());//文件包含的字节数
+//		byte[] buf = new byte[fis.available()];	//文件过大时数组长度过大，会内存溢出
+//		fis.read(buf);
+//		System.out.println(new String(buf));
+		
+		//建议使用这种读取数据的方式
+		byte[] buf = new byte[1024];		
+		int len = 0;
+		while((len=fis.read(buf))!=-1){
+			System.out.println(new String(buf,0,len));
+		}
+		fis.close();
+	}
+		
+	public static void demo_write() throws IOException {
+		//1，创建字节输出流对象，用于操作文件.
+		FileOutputStream fos = new FileOutputStream("bytedemo.txt");
+		
+		//2,写数据。直接写入到了指定文件中，不需要缓冲。不需要flush()
+		fos.write("abcdefg".getBytes());
+		
+		fos.close();//关闭资源动作要完成。 
+	}
+}
 
+```
 
 ### FileOutputStream
 
