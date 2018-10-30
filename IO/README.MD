@@ -12,6 +12,7 @@
    - [对象输入输出流](#object流)
    - [管道流](#管道流)
    - [DateStream](#datestream)
+   - [Byte数组流](#byte数组流)
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
 - ## [RandomAccessFile](#randomaccessfile随机读取文件)
@@ -346,6 +347,25 @@ public class DataSteamDemo {
 }
 ```
 
+### Byte数组流
+直接操作的是内存中的数据，关闭输入输出流无效，这两个类中的方法在关闭流后仍可被调用。  
+* ByteArrayInputStream
+源必须是byte数组。
+* ByteArrayOutputStream 
+数据被写入一个byte数组，长度可变。可使用toByteArray（）和toString（）获取数据。
+public class ByteArrayStreamDemo {
+	public static void main(String[] args) {
+
+		ByteArrayInputStream bis = new ByteArrayInputStream("abcedf".getBytes());
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		
+		int ch = 0;
+		while((ch=bis.read())!=-1){
+			bos.write(ch);
+		}
+		System.out.println(bos.toString());
+	}
+}
 
 ## File 类
 将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
