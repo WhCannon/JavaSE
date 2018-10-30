@@ -466,6 +466,7 @@ public static void main(String[] args) throws IOException {
 
 ## Object流
 * ObjectOutputStream
+可以将对象进行序列化
 ```java
 public static void writeObj() throws IOException, IOException {
 		
@@ -476,6 +477,7 @@ public static void writeObj() throws IOException, IOException {
 	}
 ```
 * ObjectInputStream 
+对以前使用ObjectOutputStream写入的对象进行反序列化。
 ```java
 public static void readObj() throws IOException, ClassNotFoundException {
 		
