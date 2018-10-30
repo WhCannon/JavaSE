@@ -482,6 +482,9 @@ public static void main(String[] args) throws IOException {
 ### [练习6](#答案6)
 删除一个带内容的目录
 
+### [练习7](#答案7)
+对文件进行切割和合并。
+
 ### 答案1
 ```java
 public class CopyTextTest_2 {
@@ -830,4 +833,9 @@ public class RemoveDirTest {
 		System.out.println(dir+":"+dir.delete());
 	}
 }
+```
+
+### 答案7
+```java
+
 ```
