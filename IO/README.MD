@@ -9,6 +9,7 @@
    - [BufferedWriter](#bufferedwriter)
    - [BufferedReader](#bufferedreader)
 - ## [File类](#file-类)
+- ## [打印流](#打印流)
 
 - ## [练习](#练-习)
 
@@ -385,6 +386,11 @@ public static void listDemo_2() {
 			System.out.println(name);
 		}
 ```
+
+## 打印流
+* PrintStream 与 PrintWriter
+
+
 
 ## 练 习
 ### [练习1](#答案1)
