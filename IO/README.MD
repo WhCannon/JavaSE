@@ -10,6 +10,7 @@
    - [BufferedReader](#bufferedreader)
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
+- ## [序列流](#sequenceinputstream)
 
 - ## [练习](#练-习)
 
@@ -413,7 +414,54 @@ PrintWriter out = new PrintWriter(new FileWriter("out.txt"),true);//自动刷新
 		out.close();
 		bufr.close();
 ```
-
+## SequenceInputStream
+一个读取流只能关联一个源，要想关联多个源就要使用多个读取流，  
+这时为了方便操作，可以将这些流合并为一个流，这个流就是序列流。  
+使用示例：  
+```java
+需求：将1.txt 2.txt 3.txt文件中的数据合并到一个文件中。
+public static void main(String[] args) throws IOException {
+		/*
+		 * 需求：将1.txt 2.txt 3.txt文件中的数据合并到一个文件中。
+		 */
+		//序列流需要接收一个枚举，所以要先获得一个枚举对象。
+/*		Vector<FileInputStream> v = new Vector<FileInputStream>();		
+		v.add(new FileInputStream("1.txt"));
+		v.add(new FileInputStream("2.txt"));
+		v.add(new FileInputStream("3.txt"));
+		Enumeration<FileInputStream> en = v.elements();
+		Vector集合最好不用。
+		*/
+		
+		//改用效率更高的其他集合来获取枚举
+		ArrayList<FileInputStream> al = new ArrayList<FileInputStream>();
+		for(int x=1; x<=3; x++){
+			al.add(new FileInputStream(x+".txt"));
+		}
+		Enumeration<FileInputStream> en = Collections.enumeration(al);
+		/*Collections.enumeration的原理
+		final Iterator<FileInputStream> it = al.iterator();
+		Enumeration<FileInputStream> en = new Enumeration<FileInputStream>(){
+			public boolean hasMoreElements() {
+				return it.hasNext();
+			}
+			public FileInputStream nextElement() {
+				return it.next();
+			}
+		};*/
+		
+		SequenceInputStream sis = new SequenceInputStream(en);//序列流需要接收一个枚举
+		FileOutputStream fos = new FileOutputStream("1234.txt");
+		
+		byte[] buf = new byte[1024];
+		int len = 0;
+		while((len=sis.read(buf))!=-1){
+			fos.write(buf,0,len);
+		}
+		fos.close();
+		sis.close();
+	}
+```
 
 ## 练 习
 ### [练习1](#答案1)
