@@ -353,6 +353,7 @@ public class DataSteamDemo {
 源必须是byte数组。
 * ByteArrayOutputStream 
 数据被写入一个byte数组，长度可变。可使用toByteArray（）和toString（）获取数据。
+```java
 public class ByteArrayStreamDemo {
 	public static void main(String[] args) {
 
@@ -366,6 +367,8 @@ public class ByteArrayStreamDemo {
 		System.out.println(bos.toString());
 	}
 }
+```
+
 
 ## File 类
 将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
