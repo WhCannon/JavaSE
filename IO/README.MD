@@ -9,7 +9,7 @@
    - [BufferedWriter](#bufferedwriter)
    - [BufferedReader](#bufferedreader)
 - ## [File类](#file-类)
-- ## [打印流](#打印流)
+- ## [打印流](#打-印-流)
 
 - ## [练习](#练-习)
 
@@ -387,7 +387,7 @@ public static void listDemo_2() {
 		}
 ```
 
-## 打印流
+## 打 印 流
 * PrintStream 与 PrintWriter
 
 
