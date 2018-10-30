@@ -397,6 +397,22 @@ out.write(610);//只写最低8位，'b'
 out.print(97);//写什么就打印什么，将97先变成字符串保持原样，再打印到目的地，打印"97"
 out.close();
 ```
+PtintWriter
+```java
+BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+		
+PrintWriter out = new PrintWriter(new FileWriter("out.txt"),true);//自动刷新
+		
+		String line =  null;
+		while((line=bufr.readLine())!=null){
+			if("over".equals(line))
+				break;
+			out.println(line.toUpperCase());
+//			out.flush();定义了自动刷新，可以不用flush
+		}
+		out.close();
+		bufr.close();
+```
 
 
 ## 练 习
