@@ -389,7 +389,14 @@ public static void listDemo_2() {
 
 ## 打 印 流
 * PrintStream 与 PrintWriter
-
+```java
+print与write的区别
+PrintStream out = new PrintStream("print.txt");//可以直接打印到文件中
+out.write(97);//写入一个字节（int有四个字节），是参数的八个低位，其他高位被忽略，写的二进制被解码为字母a
+out.write(610);//只写最低8位，'b'
+out.print(97);//写什么就打印什么，将97先变成字符串保持原样，再打印到目的地，打印"97"
+out.close();
+```
 
 
 ## 练 习
