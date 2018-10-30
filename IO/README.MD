@@ -465,7 +465,7 @@ public static void main(String[] args) throws IOException {
 ```
 
 ## Object流
-### ObjectOutputStream
+* ObjectOutputStream
 ```java
 public static void writeObj() throws IOException, IOException {
 		
@@ -475,6 +475,18 @@ public static void writeObj() throws IOException, IOException {
 		oos.close();
 	}
 ```
+* ObjectInputStream 
+```java
+public static void readObj() throws IOException, ClassNotFoundException {
+		
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("obj.object"));
+		//对象的反序列化。 
+		Person p = (Person)ois.readObject();
+		System.out.println(p.getName()+":"+p.getAge());
+		ois.close();
+	}
+```
+
 
 ## 练 习
 ### [练习1](#答案1)
