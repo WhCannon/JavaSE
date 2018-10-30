@@ -12,7 +12,7 @@
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
 - ## [对象输入输出流](#object流)
-- ## [RandomAccessFile](##randomaccessfile)
+- ## [RandomAccessFile](#randomaccessfile)
 
 
 - ## [练习](#练-习)
