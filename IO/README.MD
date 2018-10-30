@@ -24,10 +24,10 @@
 
 
 
-## 字符流
+### 字符流
 字节流读取文字字节数据后，不直接操作而是先查指定的编码表，获取对应的文字，再对这个文字进行操作。  
 顶层抽象父类：Reader,Writer  
-### FileWriter
+## FileWriter
 将一些文字存储到硬盘的一个文件中
 ```java
 public class FileWriterDemo {
