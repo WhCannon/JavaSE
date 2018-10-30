@@ -9,6 +9,7 @@
    - [FileInputStream](#fileinputstream)
    - [FileOutputStream](#fileoutputstream)
    - [管道流](#管道流)
+   - [DateStream](#datestream)
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
 - ## [序列流](#sequenceinputstream)
@@ -321,6 +322,30 @@ class Output implements Runnable{
 }
 
 ```
+
+### DateStream
+操作基本数据类型的流对象。有writeInt、WriteLong等方法。
+```java
+public class DataSteamDemo {
+	public static void main(String[] args) throws IOException {
+//		writeData();
+		readData();
+	}
+
+	public static void readData() throws IOException {
+		DataInputStream dis = new DataInputStream(new FileInputStream("data.txt"));
+		String str = dis.readUTF();
+		System.out.println(str);
+	}
+
+	public static void writeData() throws IOException {
+		DataOutputStream dos = new DataOutputStream(new FileOutputStream("data.txt"));
+		dos.writeUTF("你好");//按UTF-8编码表写出
+		dos.close();
+	}
+}
+```
+
 
 ## File 类
 将文件或者文件夹封装成对象，方便对文件和文件夹的属性信息进行操作。File对象可以作为参数传递给流的构造函数。  
