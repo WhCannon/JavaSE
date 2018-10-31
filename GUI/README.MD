@@ -43,3 +43,73 @@ public class FrameDemo {
 	}
 }
 ```
+
+* 鼠标和键盘监听
+```java
+public class MouseAndKeyDemo {
+	private Frame f;
+	private TextField tf;
+	private Button but;
+	
+	public MouseAndKeyDemo() {
+		init();
+	}
+
+	public static void main(String[] args) {
+		new MouseAndKeyDemo();
+	}
+	
+	private void init() {
+		f = new Frame("演示鼠标和键盘监听");
+		f.setBounds(400,200,500,400);
+		f.setLayout(new FlowLayout());
+		
+		tf = new TextField(35);
+		but = new Button("一个按钮");
+		f.add(tf);
+		f.add(but);
+		
+		myEvent();
+		f.setVisible(true);
+	}
+	private void myEvent() {
+		//给文本框添加键盘监听。
+		tf.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				System.out.println("key run..."+KeyEvent.getKeyText(e.getKeyCode())+"::::"+e.getKeyCode());
+				// code是键盘上每个键对应的值
+				// int code = e.getKeyCode();
+				// if(!(code>=KeyEvent.VK_0 && code<=KeyEvent.VK_9)){
+				//		System.out.println("必须是数字");
+				//		e.consume();
+				// }
+				
+				if(e.isControlDown() && e.getKeyCode()==KeyEvent.VK_ENTER){
+					//组合键
+					System.out.println("enter run ...");
+				}
+			}
+		});
+		
+		f.addWindowListener(new WindowAdapter() {
+			//视窗关闭
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		
+		//在按钮上添加一个鼠标监听.
+		but.addMouseListener(new MouseAdapter() {
+			private int count = 1;
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount()==2)//获取点击次数
+				tf.setText("mouse double click..."+count++);
+			}
+		});
+	}
+}
+
+```
