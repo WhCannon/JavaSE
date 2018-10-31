@@ -8,7 +8,7 @@ Java为GUI提供的对象都在java.awt包和javax.swing包。
 
 ## java.awt
 
-创建GUI演示
+* 创建GUI演示
 ```java
 public class FrameDemo {
 	public static void main(String[] args) {
