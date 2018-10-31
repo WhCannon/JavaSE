@@ -117,3 +117,4 @@ public class MouseAndKeyDemo {
 
 
 ## javax.swing
+在AWT的基础上，建立的一套图形界面系统，完全由Java实现，增强了移植性，属轻量级控件。
