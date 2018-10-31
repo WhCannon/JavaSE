@@ -17,7 +17,7 @@
 - ## [File类](#file-类)
 - ## [打印流](#打-印-流)
 - ## [RandomAccessFile](#randomaccessfile随机读取文件)
-- ## [编码解码](#编码解码)
+- ## [编码解码](#编码-解码)
 
 
 - ## [练习](#练-习)
@@ -686,7 +686,7 @@ public static void readFile() throws IOException {
 }
 ```
 
-## 编码解码
+## 编码 解码
 
 
 
