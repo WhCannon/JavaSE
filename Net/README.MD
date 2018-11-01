@@ -57,15 +57,26 @@
 		DatagramSocket ds = new DatagramSocket(8888);
 		
 		//2,将要发送的数据封装到数据包中。
-		String str = "udp传输演示：哥们来了！";
+		//String str = "udp传输演示：哥们来了！";
+		
+		//键盘持续录入数据
+		BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+		String line = null;
+		while((line=bufr.readLine())!=null){
+		
 		//使用DatagramPacket将数据封装到包中。
-		byte[] buf = str.getBytes();
+		byte[] buf = line.getBytes();
 		//以字节数组为数据包，将长度为length的包发送到指定主机上的指定端口号。
 		DatagramPacket dp = 
 				new DatagramPacket(buf,buf.length,InetAddress.getByName("192.168.1.100"),10000);
 		
 		//3，通过udp的socket服务将数据包发送出去。使用send方法。
 		ds.send(dp);
+		
+		if("886".equals(line))
+				break;
+		}
+		
 		//4，关闭资源。
 		ds.close();
 	}
@@ -88,6 +99,7 @@
 		//1,建立udp socket服务，明确一个端口
 		DatagramSocket ds = new DatagramSocket(10000);
 		
+		while(true){//持续接收
 		//2,创建数据包。
 		byte[] buf = new byte[1024];
 		DatagramPacket dp = new DatagramPacket(buf,buf.length);
@@ -101,8 +113,10 @@
 		String text = new String(dp.getData(),0,dp.getLength());
 		
 		System.out.println(ip+":"+port+":"+text);
+		}
+		
 		//5,关闭资源。
-		ds.close();
+		//ds.close();
 	}
   ```
   
