@@ -134,5 +134,70 @@
 
 ## 答案 1
 ```java
+public class ChatDemo {
+	public static void main(String[] args) throws IOException {
+		DatagramSocket send = new DatagramSocket();
+		DatagramSocket rece = new DatagramSocket(10001);
+		
+		new Thread(new Send(send)).start();
+		new Thread(new Rece(rece)).start();
+	}
+}
+
+public class Send implements Runnable {
+	private DatagramSocket ds;
+	public Send(DatagramSocket ds){
+		this.ds = ds;
+	}
+	@Override
+	public void run() {
+		try {
+			BufferedReader bufr = new BufferedReader(new InputStreamReader(System.in));
+			String line = null;
+			
+			while((line=bufr.readLine())!=null){
+				byte[] buf = line.getBytes();
+				DatagramPacket dp = 
+						new DatagramPacket(buf,buf.length,InetAddress.getByName("192.168.1.255"),10001);
+				ds.send(dp);
+				if("886".equals(line))
+					break;
+			}
+			ds.close();
+		} catch (Exception e) {
+		}
+	}
+}
+
+public class Rece implements Runnable {
+	private DatagramSocket ds;
+	public Rece(DatagramSocket ds) {
+		this.ds = ds;
+	}
+	@Override
+	public void run() {
+		try {
+			while (true) {
+				// 2,创建数据包。
+				byte[] buf = new byte[1024];
+				DatagramPacket dp = new DatagramPacket(buf, buf.length);
+
+				// 3,使用接收方法将数据存储到数据包中。
+				ds.receive(dp);// 阻塞式的。
+
+				// 4，通过数据包对象的方法，解析其中的数据,比如，地址，端口，数据内容。
+				String ip = dp.getAddress().getHostAddress();
+				int port = dp.getPort();
+				String text = new String(dp.getData(), 0, dp.getLength());
+				
+				System.out.println(ip + "::" + text);
+				if(text.equals("886")){
+					System.out.println(ip+"....退出聊天室");
+				}
+			}
+		} catch (Exception e) {
+		}
+	}
+}
 
 ```
