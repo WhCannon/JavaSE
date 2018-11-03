@@ -249,6 +249,9 @@ public static void main(String[] args) throws IOException {
 直到客户端输入over.转换结束.   
 也就是创建一个英文大写转换服务器.
 
+### [练习3](#答案3)
+上传文本文件到服务端。
+
 
 ## 答案 1
 ```java
@@ -403,6 +406,74 @@ public static void main(String[] args) throws IOException {
 			System.out.println(line);
 			out.println(line.toUpperCase());
 		}
+		s.close();
+		ss.close();
+	}
+```
+
+## 答案2
+```java
+客户端
+public static void main(String[] args) throws UnknownHostException, IOException {
+
+		System.out.println("上传客户端。。。。。。");
+		
+		File file = new File("c:\\client.txt");
+		System.out.println(file.exists());
+		
+		//1
+		Socket s = new Socket("192.168.1.100",10005);
+		//2
+		BufferedReader bufr =
+				new BufferedReader(new FileReader(file));
+		//3,
+		PrintWriter out = new PrintWriter(s.getOutputStream(),true);
+		
+		String line = null;
+		while((line=bufr.readLine())!=null){
+			out.println(line);
+		}
+		
+		//告诉服务端，客户端写完了。
+		s.shutdownOutput();
+		
+		//4,
+		BufferedReader bufIn =
+			new BufferedReader(new InputStreamReader(s.getInputStream()));
+		String str = bufIn.readLine();
+		System.out.println(str);
+		
+		bufr.close();
+		s.close();
+	}
+	
+服务端
+public static void main(String[] args) throws IOException {
+		System.out.println("上传服务端。。。。。。。。。");
+		
+		//1
+		ServerSocket ss = new ServerSocket(10005);
+		//2,
+		Socket s = ss.accept();
+		System.out.println(s.getInetAddress().getHostAddress()+".....connected");
+		
+		//3,
+		BufferedReader bufIn = 
+			new BufferedReader(new InputStreamReader(s.getInputStream()));
+		//4,
+		BufferedWriter bufw = new BufferedWriter(new FileWriter("c:\\server.txt"));
+		
+		String line = null;
+		while((line=bufIn.readLine())!=null){
+			bufw.write(line);
+			bufw.newLine();
+			bufw.flush();
+		}
+		
+		PrintWriter out = new PrintWriter(s.getOutputStream(),true);
+		out.println("上传成功");
+		
+		bufw.close();
 		s.close();
 		ss.close();
 	}
