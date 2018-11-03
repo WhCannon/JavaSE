@@ -193,7 +193,47 @@ public class ServerDemo {
 
 服务端和客户端交互
 ```java
-
+客户端
+public static void main(String[] args) throws UnknownHostException, IOException {
+		Socket socket = new Socket("192.168.1.100",10002);
+		OutputStream out = socket.getOutputStream();	
+		out.write("tcp演示：哥们又来了!".getBytes());
+		
+		//读取服务端返回的数据,使用socket读取流。 
+		InputStream in = socket.getInputStream();
+		byte[] buf = new byte[1024];
+		int len = in.read(buf);
+		String  text = new String(buf,0,len);
+		System.out.println(text);
+		
+		//关闭资源。
+		socket.close();
+	}
+	
+服务端
+public static void main(String[] args) throws IOException {
+		//1创建服务端对象。
+		ServerSocket ss = new ServerSocket(10002);
+		
+		//2,获取连接过来的客户端对象。
+		Socket s = ss.accept();
+		
+		String ip = s.getInetAddress().getHostAddress();
+		
+		//3，通过socket对象获取输入流，要读取客户端发来的数据
+		InputStream in = s.getInputStream();
+		byte[] buf = new byte[1024];
+		int len = in.read(buf);
+		String text = new String(buf,0,len);
+		System.out.println(ip+":"+text);
+		
+		//使用客户端socket对象的输出流给客户端返回数据
+		OutputStream out = s.getOutputStream();
+		out.write("收到".getBytes());
+		
+		s.close();
+		ss.close();
+	}
 ```
 
 
