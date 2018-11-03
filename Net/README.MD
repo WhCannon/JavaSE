@@ -243,7 +243,11 @@ public static void main(String[] args) throws IOException {
 ### [练习1](#答案-1)
 聊天程序（是多线程的）
 
-
+### [练习2](#答案2)
+客户端输入字母数据，发送给服务端，  
+服务端收到后显示在控制台，并将该数据转成大写返回给客户端   
+直到客户端输入over.转换结束.   
+也就是创建一个英文大写转换服务器.
 
 
 ## 答案 1
@@ -313,5 +317,13 @@ public class Rece implements Runnable {
 		}
 	}
 }
+
+```
+
+
+## 答案2
+分析：  
+有客户端和服务端,使用tcp传输  
+```java
 
 ```
