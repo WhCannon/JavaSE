@@ -252,6 +252,8 @@ public static void main(String[] args) throws IOException {
 ### [练习3](#答案3)
 上传文本文件到服务端。
 
+### [练习4](#答案4)
+创建一个能并发上传图片并存储的服务端。
 
 ## 答案 1
 ```java
@@ -477,4 +479,107 @@ public static void main(String[] args) throws IOException {
 		s.close();
 		ss.close();
 	}
+```
+
+## 答案4
+```java
+客户端
+public class UploadPicClient {
+	public static void main(String[] args) throws UnknownHostException, IOException {
+		//1,创建客户端socket。
+		Socket s = new Socket("192.168.1.100",10006);
+		
+		//2,读取客户端要上传的图片文件。
+		FileInputStream fis = new FileInputStream("c:\\0.bmp");
+		
+		//3,获取socket输出流，将读到图片数据发送给服务端。
+		OutputStream out = s.getOutputStream();
+		byte[] buf = new byte[1024];
+		int len = 0;
+		while((len=fis.read(buf))!=-1){
+			out.write(buf,0,len);
+		}
+		
+		//告诉服务端说：这边的数据发送完毕。让服务端停止读取。
+		s.shutdownOutput();
+		
+		//读取服务端发回的内容。 		
+		InputStream in  = s.getInputStream();
+		byte[] bufIn = new byte[1024];
+		int lenIn = in.read(buf);
+		String text = new String(buf,0,lenIn);
+		System.out.println(text);
+		
+		fis.close();
+		s.close();
+	}
+}
+
+
+服务端
+public class UploadPicServer {
+	public static void main(String[] args) throws IOException {
+			
+		//创建tcp的socket服务端。
+		ServerSocket ss = new ServerSocket(10006);
+		while(true){
+			Socket s = ss.accept();			
+			new Thread(new UploadTask(s)).start();		
+		}
+	}
+}
+
+服务端任务
+public class UploadTask implements Runnable {
+	private static final int SIZE = 1024*1024*2;
+	private Socket s;
+	public  UploadTask(Socket s) {
+		this.s = s;
+	}
+	@Override
+	public void run() {
+		int count = 0;
+		String ip = s.getInetAddress().getHostAddress();
+		System.out.println(ip + ".....connected");
+		
+		try{
+		// 读取客户端发来的数据。
+		InputStream in = s.getInputStream();
+
+		// 将读取到数据存储到一个文件中。
+		File dir = new File("c:\\pic");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+		File file = new File(dir, ip + ".jpg");
+		//如果文件已经存在于服务端 
+		while(file.exists()){
+			file = new File(dir,ip+"("+(++count)+").jpg");
+		}
+		
+		FileOutputStream fos = new FileOutputStream(file);
+		byte[] buf = new byte[1024];
+		int len = 0;
+		while ((len = in.read(buf)) != -1) {
+			fos.write(buf, 0, len);
+			if(file.length()>SIZE){
+				System.out.println(ip+"文件体积过大");
+				fos.close();
+				s.close();
+				
+				System.out.println(ip+"...."+file.delete());
+				return ;
+			}
+		}
+
+		// 获取socket输出流，将上传成功字样发给客户端。
+		OutputStream out = s.getOutputStream();
+		out.write("上传成功".getBytes());
+
+		fos.close();
+		s.close();
+		}catch(IOException e){
+		}
+	}
+}
 ```
