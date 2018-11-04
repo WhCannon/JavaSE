@@ -108,5 +108,36 @@ public static void createNewObject_2() throws Exception {
 
 ## 获取Class中的函数
 ```java
+//获取有参的函数
+	public static void getMethodDemo_3() throws Exception {
+		Class clazz = Class.forName("cn.itcast.bean.Person");
+		//指定方法名和参数
+		Method method = clazz.getMethod("paramMethod", String.class,int.class);
+		Object obj = clazz.newInstance();
+		method.invoke(obj, "小强",89);//调用并传值
+	}
+	
+	//获取一个空参函数
+	public static void getMethodDemo_2() throws Exception {
+		Class clazz = Class.forName("cn.itcast.bean.Person");
+		
+		//需要指定函数名和参数列表
+		Method method = clazz.getMethod("show", null);//获取空参数一般方法。
+		
+		//	Object obj = clazz.newInstance();
+		Constructor constructor = clazz.getConstructor(String.class,int.class);
+		Object obj = constructor.newInstance("小明",37);
+		
+		method.invoke(obj, null);//运行函数，需要指定对象和参数列表
+	}
 
+	//	 获取指定Class中的所有公共函数。
+	public static void getMethodDemo() throws Exception {
+		Class clazz = Class.forName("cn.itcast.bean.Person");
+		
+		Method[] methods  = clazz.getMethods();//获取的都是公有的方法（包括父类中的）
+		methods = clazz.getDeclaredMethods();//只获取本类中所有方法，包含私有。
+		for(Method method : methods){
+			System.out.println(method);
+		}
 ```
