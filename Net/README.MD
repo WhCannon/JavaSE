@@ -3,6 +3,7 @@
       - [IP地址](#ip地址)
       - [端口](#端口)
       - [传输协议](#传输协议)
+      - [客户端和服务端原理](#客户端和服务端原理)
       
   - ## [练习](#练-习)
   
@@ -236,7 +237,37 @@ public static void main(String[] args) throws IOException {
 	}
 ```
 
+## 客户端和服务端原理
+```java
+使用已有的客户端IE，了解一下客户端给服务端发了什么请求？
+发送的请求是：
+GET / HTTP/1.1  			   	  =========请求行  请求方式/请求的资源路径/http协议版本
+下面的是请求消息头					  ===============================属性名：属性值
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash,application/vnd.ms-excel,application/vnd.ms-powerpoint, application/msword, */*
+Accept: */*      					  ==================================支持的格式 
+Accept-Language: zh-cn,zu;q=0.5   ==================================支持的语言
+Accept-Encoding: gzip, deflate    ===============================支持的压缩方式
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; InfoPath.2)
+Host: 192.168.1.100:9090			  ==================================客户端信息
+//Host: www.huyouni.com:9090      =================================要访问的主机
+Connection: Keep-Alive				 
+//空一行
+//请求体
 
+服务端返回的应答消息：
+HTTP/1.1 200 OK    ======= //应答行    http的协议版本/应答状态码/应答状态描述信息
+下面的是应答消息属性信息。 属性名：属性值
+Server: Apache-Coyote/1.1
+ETag: W/"199-1323480176984"
+Last-Modified: Sat, 10 Dec 2011 01:22:56 GMT
+Content-Type: text/html
+Content-Length: 199
+Date: Fri, 11 May 2012 07:51:39 GMT
+Connection: close
+//空行
+//应答体。
+
+```
 
   
 ## 练 习
