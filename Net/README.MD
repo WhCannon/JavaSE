@@ -273,7 +273,42 @@ Connection: close
 
 
 ## URL
-
+```java
+public static void main(String[] args) throws IOException {
+		String str_url = "http://192.168.1.100:8080/myweb/1.html?name=lisi";
+		URL url = new URL(str_url);
+		
+		//获取URL的信息
+		System.out.println("getProtocol:"+url.getProtocol());
+		System.out.println("getHost:"+url.getHost());
+		System.out.println("getPort:"+url.getPort());
+		System.out.println("getFile:"+url.getFile());
+		System.out.println("getPath:"+url.getPath());
+		System.out.println("getQuery:"+url.getQuery());
+		
+		InputStream in = url.openStream();//打开URL的连接并返回一个从该连接读入的输入流
+		//	openStream()方法是openConnection().getInputStream()的简写
+	
+		
+		//获取url对象的Url连接器对象。
+		//将连接封装成了对象:java中内置的可以解析具体协议的对象+socket.
+		URLConnection conn = url.openConnection();
+		
+		String value = conn.getHeaderField("Content-Type");
+		System.out.println(value);// 解析结果text/html
+		
+//		System.out.println(conn);
+		//sun.net.www.protocol.http.HttpURLConnection:http://192.168.1.100:8080/myweb/1.html
+		
+		InputStream in = conn.getInputStream();
+		
+		byte[] buf = new byte[1024];
+		int len = in.read(buf);
+		String text = new String(buf,0,len);
+		System.out.println(text);
+		in.close();
+	}
+```
   
 ## 练 习
 ### [练习1](#答案-1)
