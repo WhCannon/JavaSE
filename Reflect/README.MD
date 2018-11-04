@@ -1,6 +1,8 @@
 # 反射
   - [获取字节码文件对象](#获取字节码文件对象-class)
   - [获取Class中的构造函数](#获取class中的构造函数)
+  - [获取Class中的字段](#获取class中的字段)
+  - [获取Class中的函数](#获取class中的函数)
   
 
 
@@ -83,4 +85,28 @@ public static void createNewObject_2() throws Exception {
 		//如何产生该类的对象呢？
 		Object obj  = clazz.newInstance();//创建一个该类的新实例
 	}
+```
+
+## 获取Class中的字段
+```java
+//	 获取字节码文件中的字段。
+	public static void getFieldDemo() throws Exception {
+		Class clazz = Class.forName("cn.itcast.bean.Person");
+		
+		Field field = null;//clazz.getField("age");//只能获取公有的
+		field = clazz.getDeclaredField("age");//只获取本类，但包含私有 
+		
+		//对私有字段的访问取消权限检查。暴力访问。
+		field.setAccessible(true);
+		
+		Object obj = clazz.newInstance();
+		field.set(obj, 89);//设置值
+		Object o = field.get(obj);//需要指定对象来调用
+		System.out.println(o);
+	}
+```
+
+## 获取Class中的函数
+```java
+
 ```
