@@ -3,7 +3,7 @@
   - [获取Class中的构造函数](#获取class中的构造函数)
   - [获取Class中的字段](#获取class中的字段)
   - [获取Class中的函数](#获取class中的函数)
-  
+  - [练习](#练-习)
 
 
 
@@ -140,4 +140,72 @@ public static void createNewObject_2() throws Exception {
 		for(Method method : methods){
 			System.out.println(method);
 		}
+```
+
+
+## 练 习
+### [练习1](#答案1)
+模拟电脑运行，扩展硬件设施，演示反射的拓展性。
+
+
+## 答案1
+```java
+主板
+public class Mainboard {
+	public void run() {
+		System.out.println("main board run....");
+	}
+
+	public void usePCI(PCI p) {//PCI p = new SouncCard();
+		if (p != null) {
+			p.open();
+			p.close();
+		}
+	}
+}
+
+PCI接口
+public interface PCI {
+	public void open();
+	public void close();
+}
+
+反射
+public class ReflectTest {
+	public static void main(String[] args) throws Exception {
+
+		Mainboard mb = new Mainboard();
+		mb.run();
+		//每次添加一个设备都需要修改代码传递一个新创建的对象
+		//	mb.usePCI(new SoundCard());
+		//能不能不修改代码就可以完成这个动作。 
+		//	不用new来完成，而是只获取其class文件，在内部实现创建对象的动作。 
+		
+		File configFile = new File("pci.properties");//创建一个配置文件
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream(configFile);
+		prop.load(fis);
+		
+		for(int x=0; x<prop.size(); x++){
+			String pciName = prop.getProperty("pci"+(x+1));
+			Class clazz = Class.forName(pciName);//用Class去加载这个pci子类。 
+			PCI p = (PCI)clazz.newInstance();
+			mb.usePCI(p);
+		}
+		fis.close();
+	}
+}
+
+扩展一个声卡
+public class SoundCard implements PCI {
+	public void open(){
+		System.out.println("sound open");
+	}
+	public void close(){
+		System.out.println("sound close");
+	}
+}
+
+配置文件的格式
+pci1=cn.itcast.reflect.test.SoundCard
 ```
