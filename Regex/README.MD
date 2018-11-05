@@ -86,9 +86,43 @@ public  static void functionDemo_4() {
 
 ## 练习
 ### [练习1](#答案1)
+对IP地址排序
 
+### [练习2](#答案2)
+对邮件地址校验
 
 
 
 
 ## 答案1
+```java
+public static void test_2(){
+		String ip_str = "192.168.10.34  127.0.0.1  3.3.3.3  105.70.11.55";
+		
+		//为了让ip可以按照字符串顺序比较，只要让ip的每一段的位数相同。
+		//所以，补零，按照每一位所需做多0补充。每一段都加两个0.
+		ip_str = ip_str.replaceAll("(\\d+)", "00$1");
+		System.out.println(ip_str);
+		
+		//然后每一段保留数字3位。
+		ip_str = ip_str.replaceAll("0*(\\d{3})", "$1");
+		System.out.println(ip_str);
+		
+		//将ip地址切出。
+		String[] ips = ip_str.split(" +");
+		TreeSet<String> ts = new TreeSet<String>();
+		
+		for(String  ip : ips){
+			ts.add(ip);
+		}
+		for(String ip : ts){
+			//输出时将多余的0去掉
+			System.out.println(ip.replaceAll("0*(\\d+)", "$1"));
+		}
+	}
+```
+
+## 答案2
+```java
+
+```
