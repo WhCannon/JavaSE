@@ -48,9 +48,19 @@ public static void functionDemo_2(){
 第四组(C)
 ```
 
-* 替换
+* 替换  
+String类中的replaceAll()方法
 ```java
-
+public static void functionDemo_3() {
+		String str = "zhangsanttttxiaoqiangmmmmmmzhaoliu";
+		str = str.replaceAll("(.)\\1+", "$1");//多个t换成一个t
+		System.out.println(str);
+		
+		String tel = "15800001111";//158****1111
+		//将号码头尾分成2组，替换两个组中间的部分
+		tel = tel.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+		System.out.println(tel);
+	}
 ```
 
 * 获取
