@@ -63,7 +63,22 @@ public static void functionDemo_3() {
 	}
 ```
 
-* 获取
+* 获取  
 ```java
-
+public  static void functionDemo_4() {
+		String str = "da jia hao,ming tian bu fang jia!";
+		String regex = "\\b[a-z]{3}\\b";
+		
+		//1,将正则封装成对象。
+		Pattern p = Pattern.compile(regex);
+		//2通过正则对象的matcher方法和字符串相关联。获取要对字符串操作的匹配器对象Matcher
+		Matcher m = p.matcher(str);
+		
+		//使用Matcher对象的方法对字符串进行操作。
+		//既然要获取三个字母组成的单词,使用查找find();
+		System.out.println(str);
+		while(m.find()){//先查找
+			System.out.println(m.group());//再获取匹配的子序列
+			System.out.println(m.start()+":"+m.end());
+		}
 ```
