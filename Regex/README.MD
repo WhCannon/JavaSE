@@ -124,5 +124,13 @@ public static void test_2(){
 
 ## 答案2
 ```java
-
+public static void test_3() {
+		String mail = "abc1@sina.com.cn";
+		String regex = "[a-zA-Z0-9_]+@[a-zA-Z0-9]+(\\.[a-zA-Z]{1,3})+";
+		
+		regex = "\\w+@\\w+(\\.\\w+)+";//1@1.1
+		
+		boolean b = mail.matches(regex);
+		System.out.println(mail+":"+b);
+	}
 ```
