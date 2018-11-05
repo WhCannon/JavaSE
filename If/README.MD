@@ -26,3 +26,21 @@ else if()
 else
 { }
 ```
+
+
+## 选择结构
+```java
+switch()
+{
+case 值1://若符合，则执行此case
+    执行语句;
+    break;//跳出
+case 值2:
+    ...
+    ...
+default:
+    执行语句;
+    break;
+}
+```
+只能选择byte/short/int/char 4种数据类型
