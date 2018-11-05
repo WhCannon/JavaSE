@@ -2,6 +2,7 @@
   - [判断结构](#判断结构)
   - [选择结构](#选择结构)
   - [循环结构](#循环结构)
+  - [break&continue](#break&continue)
 
 
 
@@ -56,4 +57,22 @@ while();
 
 for(初始化表达式；条件表达式；循环后操作表达式)
 { }
+```
+
+## break&continue
+* break
+```java
+for(int x=0;x<3;x++)
+{if(x==1)
+    break;
+ System.out.println(x);   
+}
+```
+* continue
+```java
+for(int x=0;x<11;x++)
+{if(x%2==0)
+    continue;
+ System.out.println(x);
+}
 ```
