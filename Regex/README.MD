@@ -1,6 +1,7 @@
 # 正则表达式
   - [常用操作](#常用操作)
   - [练习](#练习)
+  - [网页爬虫](#网页爬虫)
 
 
 
@@ -82,6 +83,32 @@ public  static void functionDemo_4() {
 			System.out.println(m.group());//再获取匹配的子序列
 			System.out.println(m.start()+":"+m.end());
 		}
+```
+
+## 网页爬虫
+其实就一个程序用于在互联网中获取符合指定规则的数据
+```java
+public static List<String> getMailsByWeb() throws IOException {
+	//1,读取源文件。
+	URL url = new URL("http://192.168.1.100:8080/myweb/mail.html");
+	BufferedReader bufIn = new BufferedReader(new InputStreamReader(url.openStream()));
+	
+	//2,对读取的数据进行规则的匹配。从中获取符合规则的数据.
+	String mail_regex = "\\w+@\\w+(\\.\\w+)+";
+	
+	List<String> list = new ArrayList<String>();
+	Pattern p = Pattern.compile(mail_regex);
+	
+	String line = null;
+	while((line=bufIn.readLine())!=null){
+		Matcher m = p.matcher(line);
+		while(m.find()){
+			//3,将符合规则的数据存储到集合中。
+			list.add(m.group());
+		}
+	}
+	return list;
+  }
 ```
 
 ## 练习
