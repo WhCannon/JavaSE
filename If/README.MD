@@ -44,3 +44,16 @@ default:
 }
 ```
 只能选择byte/short/int/char 4种数据类型
+
+## 循环结构
+```java
+while()
+{ }
+
+do
+{ }
+while();
+
+for(初始化表达式；条件表达式；循环后操作表达式)
+{ }
+```
