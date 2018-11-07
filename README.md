@@ -1,6 +1,6 @@
 # JavaSE
  - [基本数据类型](https://github.com/WhCannon/JavaSE/blob/master/Int/README.MD)
- - [结构语句](https://github.com/WhCannon/JavaSE/blob/master/If/README.MD)
+ - [流程控制语句](https://github.com/WhCannon/JavaSE/blob/master/If/README.MD)
  - [继承&接口](https://github.com/WhCannon/JavaSE/blob/master/Extends/README.MD)
  - [多态](https://github.com/WhCannon/JavaSE/blob/master/Polymorphism/README.MD)
  - [抽象类](https://github.com/WhCannon/JavaSE/blob/master/Abstract-Class/README.MD)
