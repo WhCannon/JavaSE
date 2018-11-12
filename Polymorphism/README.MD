@@ -100,6 +100,46 @@ class T
 }
 ```
 
+### 练习4
+```java
+写出运行结果
+class A {
+	public void show() {
+		show2();
+	}
+	public void show2() {
+		System.out.println("我");
+	}
+}
+class B extends A {
+	/*从父类继承的
+	public void show() {
+		show2();
+	}
+	*/
+
+	public void show2() {
+		System.out.println("爱");
+	}
+}
+class C extends B {
+	public void show() {
+		super.show();
+	}
+	public void show2() {
+		System.out.println("你");
+	}
+}
+public class DuoTaiTest4 {
+	public static void main(String[] args) {
+		A a = new B();
+		a.show();
+		
+		B b = new C();
+		b.show();
+	}
+}
+```
 
 
 
@@ -108,13 +148,15 @@ class T
 
 
 
-
-### 答案1
+## 答案1
 A B
 
-### 答案2
+## 答案2
 B C 7
 
-### 答案3
+## 答案3
 4 5 showzi showzi
+
+## 答案4
+爱你
 
