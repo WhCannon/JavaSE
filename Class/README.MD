@@ -33,5 +33,23 @@ class StudentDemo{
 
 ## 构造代码块
 ```java
-
+class Code {
+	{
+		int x = 100;
+		System.out.println(x);
+	}
+	public Code(){
+		System.out.println("code");
+	}
+	{
+		int y = 200;
+		System.out.println(y);
+	}
+}
+class Test0 {
+	public static void main(String[] args) {
+		Code c = new Code();	
+	}
+}
+输出结果：100 200 code
 ```
