@@ -129,8 +129,44 @@ class Demo extends Super
 体现面向对象的特征，对数值进行判断，用异常处理，不合法的数值要出现“这个数值是非法的”提示，不再进行运算。
 
 
+### [练习7](#答案7)
+```java
+写出运行结果
+class Fu {
+	static {
+		System.out.println("静态代码块Fu");
+	}
 
+	{
+		System.out.println("构造代码块Fu");
+	}
 
+	public Fu() {
+		System.out.println("构造方法Fu");
+	}
+}
+
+class Zi extends Fu {
+	static {
+		System.out.println("静态代码块Zi");
+	}
+
+	{
+		System.out.println("构造代码块Zi");
+	}
+
+	public Zi() {
+		System.out.println("构造方法Zi");
+	}
+}
+
+class ExtendsTest2 {
+	public static void main(String[] args) {
+		Zi z = new Zi();
+	}
+}
+
+```
 
 
 
@@ -248,4 +284,14 @@ class Test21
 
 	}
 }
+```
+
+## 答案7
+```java
+		静态代码块Fu
+		静态代码块Zi
+		构造代码块Fu
+		构造方法Fu
+		构造代码块Zi
+		构造方法Zi
 ```
