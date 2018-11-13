@@ -117,6 +117,7 @@ class Demo
 
 ### [练习5]
 ```java
+要求输出30 20 10
 class Outer {
 	public int num = 10;
 	class Inner {
