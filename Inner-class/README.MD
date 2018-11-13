@@ -28,41 +28,40 @@
 
 ## 匿名内部类
 ```java
-abstract class Demo
-{
-	abstract void show();
+interface Inter {
+	public abstract void show();
+	public abstract void show2();
 }
 
-class Outer
-{
-	int num = 4;
-	/*
-	class Inner extends Demo
-	{
-		void show()
-		{
-			System.out.println("show ..."+num);
-		}
-	}
-	*/
-	public void method()
-	{
-		new Demo()//匿名内部类。
-		{
-			void show()
-			{
-				System.out.println("show ........"+num);
+class Outer {
+	public void method() {
+		//一个方法的时候
+		new Inter() {
+			public void show() {
+				System.out.println("show");
 			}
 		}.show();
+		
+		//如果我是很多个方法，就很麻烦了
+		//那么，我们有没有改进的方案呢?
+		Inter i = new Inter() { //多态
+			public void show() {
+				System.out.println("show");
+			}
+			
+			public void show2() {
+				System.out.println("show2");
+			}
+		};
+		i.show();
+		i.show2();
 	}
 }
 
-
-class InnerClassDemo4 
-{
-	public static void main(String[] args) 
-	{
-		new Outer().method();
+class InnerClassDemo6 {
+	public static void main(String[] args) {
+		Outer o = new Outer();
+		o.method();
 	}
 }
 ```
