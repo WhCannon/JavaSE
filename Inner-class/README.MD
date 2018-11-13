@@ -1,7 +1,7 @@
 # 内部类
 - [定义内部类](https://github.com/WhCannon/JavaSE/tree/master/Inner-class/定义内部类.MD)
 - [内部类私有](#内部类私有)
-- [匿名内部类](https://github.com/WhCannon/JavaSE/tree/master/Inner-class/匿名内部类.MD)
+- [匿名内部类](#匿名内部类)
 - [练习](#练习)
 
 
@@ -23,6 +23,48 @@
 				}
 			}
 		}
+```
+
+
+## 匿名内部类
+```java
+abstract class Demo
+{
+	abstract void show();
+}
+
+class Outer
+{
+	int num = 4;
+	/*
+	class Inner extends Demo
+	{
+		void show()
+		{
+			System.out.println("show ..."+num);
+		}
+	}
+	*/
+	public void method()
+	{
+		new Demo()//匿名内部类。
+		{
+			void show()
+			{
+				System.out.println("show ........"+num);
+			}
+		}.show();
+	}
+}
+
+
+class InnerClassDemo4 
+{
+	public static void main(String[] args) 
+	{
+		new Outer().method();
+	}
+}
 ```
 
 
