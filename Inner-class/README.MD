@@ -66,6 +66,30 @@ class InnerClassDemo6 {
 }
 ```
 
+* 匿名内部类的应用
+```java
+interface Person {
+	public abstract void study();
+}
+class PersonDemo {
+	public void method(Person p) {
+		p.study();
+	}
+}
+
+class InnerClassTest2 {
+	public static void main(String[] args) {
+		PersonDemo pd = new PersonDemo();
+		//匿名内部类在开发中的使用
+		//匿名内部类的本质是继承类或者实现了接口的子类匿名对象
+		pd.method(new Person(){
+			public void study() {
+				System.out.println("好好学习,天天向上");
+			}
+		});
+	}
+}
+```
 
 ## 练习
 ### 1.补足代码 [答案1](#答案1)
