@@ -3,9 +3,14 @@
 - [练习](#练习)
 ### 自动装箱拆箱
 ```java
-Integer i=new Integer(4) 可简写成
-Integer i=4;//自动装箱
-i = i+6；//i=new Integer(i.intValue()+6),i.intValue()自动拆箱
+Integer ii = 100;//自动装箱
+ii += 200; //自动拆箱，再自动装箱
+System.out.println("ii:" + ii);
+
+// 通过反编译后的代码
+// Integer ii = Integer.valueOf(100); //自动装箱
+// ii = Integer.valueOf(ii.intValue() + 200); //自动拆箱，再自动装箱
+// System.out.println((new StringBuilder("ii:")).append(ii).toString());
 
 Integer a = new Integer(128);
 Integer b = new Integer(128);
