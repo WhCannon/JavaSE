@@ -4,6 +4,7 @@
   - [String类构造函数](#构造函数)
   - [常用方法](#常用方法)
   - [StringBuffer](#stringbuffer)
+  - [StringBuilder](#stringbuilder)
   - [练习](#练习)
 
 
@@ -143,7 +144,7 @@ sb.replace(1, 3, "nba");//anbae
 sb.setCharAt(2, 'q');anqae
 ```
 
-* StringBuilder
+## StringBuilder
 功能和StringBuffer一摸一样，但线程不同步。由于不执行同步，所以单线程下速度更快。
 
 
