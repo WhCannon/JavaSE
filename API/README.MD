@@ -1,15 +1,33 @@
 # 常用API
-- ## [System类](#system类)
-- ## [Properties类](#propertie类)
-- ## [Runtime类](#runtime类)
-- ## [Math类](#math类)
-- ## [Date类](#date类)
-- ## [DateFormat类](#dateformat类)
-- ## [Calendar类](#calendar类)
-- ## [练习](#练-习) 
+- [Scanner类](#scanner类)
+- [System类](#system类)
+- [Properties类](#propertie类)
+- [Runtime类](#runtime类)
+- [Math类](#math类)
+- [Date类](#date类)
+- [DateFormat类](#dateformat类)
+- [Calendar类](#calendar类)
+- [练习](#练-习) 
 
 
 
+
+## Scanner类
+```java
+public static void main(String[] args) {
+		// 创建对象
+		Scanner sc = new Scanner(System.in);
+
+		// 获取数据
+		if (sc.hasNextInt()) {
+			int x = sc.nextInt();
+			System.out.println("x:" + x);
+		} else {
+			System.out.println("你输入的数据有误");
+		}
+	}
+
+```
 
 
 ## System类
