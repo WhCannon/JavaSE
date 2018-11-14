@@ -2,7 +2,7 @@
   - [字符串缓冲区](#字符串缓冲区)
 ### [字符串定义方式](https://github.com/WhCannon/JavaSE/blob/master/String/定义方式.MD)
 ### [String类构造函数](https://github.com/WhCannon/JavaSE/blob/master/String/构造函数.MD)
-### [常用方法](https://github.com/WhCannon/JavaSE/blob/master/String/常用方法.MD)
+  - [常用方法](#常用方法)
 ### [StringBuffer](https://github.com/WhCannon/JavaSE/blob/master/String/StringBuffer.MD)
   - [练习](#练习)
 
@@ -28,11 +28,58 @@ public static void main(String[] args) {
 	}
 ```
 
+## 字符串定义方式
+
+
+## 构造函数
+
+
+## 常用方法
+### 获取
+```java
+String  s = "abcdae";
+System.out.println("length:"+s.length());//6
+System.out.println("char:"+s.charAt(2));//c
+System.out.println("index:"+s.indexOf('k'));//-1 我们可以根据-1，来判断该字符或者字符串是否存在。
+System.out.println("lastIndex:"+s.lastIndexOf('a'));//4
+System.out.println("substring:"+s.substring(2,4));//cd
+```
+### 转换
+```java
+String  s = "张三,李四,王五";
+String[] arr = s.split(",");//张三 李四 王五
+
+char[] chs = s.toCharArray();//张 三 李 四 王 五
+    
+s = "ab你";
+byte[] bytes = s.getBytes();//97 98 -60 -29
+
+System.out.println("Abc".toUpperCase());//ABC
+		
+String s1 = "java";
+String s2 = s1.replace('q', 'z');//“java”
+System.out.println(s1==s2);//true
+    
+System.out.println("-"+"    ab  c    ".trim()+"-");//-ab  c-
+
+System.out.println("abc".concat("kk"));abckk
+```
+### 判断
+```java
+String s = "abc";
+System.out.println(s.equalsIgnoreCase("ABC"));//true
+System.out.println(s.contains("cc"));//false
+		
+String str  = "ArrayDemo.java";
+System.out.println(str.startsWith("Array"));
+System.out.println(str.endsWith(".java"));
+System.out.println(str.contains("Demo"));
+```
 
 
 
 
-
+## StringBuffer
 
 
 
