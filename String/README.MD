@@ -1,7 +1,7 @@
 # String类
   - [字符串缓冲区](#字符串缓冲区)
-### [字符串定义方式](https://github.com/WhCannon/JavaSE/blob/master/String/定义方式.MD)
-### [String类构造函数](https://github.com/WhCannon/JavaSE/blob/master/String/构造函数.MD)
+  - [字符串定义方式](字符串定义方式)
+  - [String类构造函数](构造函数)
   - [常用方法](#常用方法)
 ### [StringBuffer](https://github.com/WhCannon/JavaSE/blob/master/String/StringBuffer.MD)
   - [练习](#练习)
@@ -29,6 +29,25 @@ public static void main(String[] args) {
 ```
 
 ## 字符串定义方式
+### 第一种定义方式
+```java
+String s = "abc";
+String s1 = "abc";		
+System.out.println(s==s1);
+```
+返回结果为true  
+创建一个对象"abc"存储在字符串缓冲区，首次出现时创建，随后可以被重复调用。
+### 第二种定义方式
+```java
+String s1 = new String("abc");
+String s = "abc"
+System.out.println(s==s1)
+System.out.println(s.equals(s1))
+```
+返回结果：false true  
+用new的方法创建字符串对象，存储位置在堆内存中，实际创建了两个对象，一个new，一个字符串对象。  
+string类中的equals复写了Object中的equals，建立了string类自己的判断字符串对象是否相同的依据。  
+其实就是比较字符串内容。
 
 
 ## 构造函数
