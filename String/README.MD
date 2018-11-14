@@ -1,7 +1,7 @@
 # String类
   - [字符串缓冲区](#字符串缓冲区)
-  - [字符串定义方式](字符串定义方式)
-  - [String类构造函数](构造函数)
+  - [字符串定义方式](#字符串定义方式)
+  - [String类构造函数](#构造函数)
   - [常用方法](#常用方法)
 ### [StringBuffer](https://github.com/WhCannon/JavaSE/blob/master/String/StringBuffer.MD)
   - [练习](#练习)
