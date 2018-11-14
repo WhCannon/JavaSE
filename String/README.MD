@@ -144,6 +144,23 @@ sb.replace(1, 3, "nba");//anbae
 sb.setCharAt(2, 'q');anqae
 ```
 
+* String与StringBuffer的相互转换
+```java
+// String -- StringBuffer
+		String s = "hello";
+		// 方式1:通过构造方法
+		StringBuffer sb = new StringBuffer(s);
+		// 方式2：通过append()方法
+		StringBuffer sb2 = new StringBuffer();
+		sb2.append(s);
+
+// StringBuffer -- String
+		StringBuffer buffer = new StringBuffer("java");
+		// 方式1:通过构造方法
+		String str = new String(buffer);
+		// 方式2：通过toString()方法
+		String str2 = buffer.toString();
+```
 ## StringBuilder
 功能和StringBuffer一摸一样，但线程不同步。由于不执行同步，所以单线程下速度更快。
 
