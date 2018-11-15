@@ -39,8 +39,16 @@ public static void main(String[] args) {
 
 
 ## Math类
-
-
+需求：请设计一个方法，可以实现获取任意范围内的随机数。  
+```java
+public static int getRandom(int start, int end) {
+	// 回想我们讲过的1-100之间的随机数
+	// int number = (int) (Math.random() * 100) + 1;
+	// int number = (int) (Math.random() * end) + start;
+	int number = (int) (Math.random() * (end - start + 1)) + start;
+	return number;
+}
+```
 
 ## Date类
 
