@@ -60,6 +60,15 @@ int compareTo(Date a);比较两个日期的顺序
 
 
 ## DateFormat类
+```java
+Date date = new Date();//将当前时间封装成Date对象。
+DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.FULL)；//获取一个日期格式器，具备指定的风格（要格式化不同语言环境的日期，可在getDateInstance()的调用中指定，常量的日期格式有FULL,LONG等。）
+dateFormat=DateFormat.getDateTimeInstance(DateFormat.FULL，DateFormat.FULL);//获取一个日期+时间格式器，具备指定日期和时间格式。
+String str = dateFormat.format(date);//将日期对象格式化为字符串
+自定义格式：
+dateFormat = new SimpleDateFormat("yyyy--MM--dd");//自定义格式需要创建此子类对象
+
+```
 
 ## Calendar类
 是一个抽象类。  
