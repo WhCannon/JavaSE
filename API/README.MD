@@ -101,12 +101,12 @@ int day = c.get(Calendar.DAY_OF_MONTH);
 int week = c.get(Calendar.DAY_OF_WEEK);
 		
 System.out.println(year+"年"+month+"月"+day+"日"+getWeek(week));
+
+// 5年后的10天前
+		c.add(Calendar.YEAR, 5);
+		c.add(Calendar.DATE, -10);
 }
 		
-public static String getWeek(int i) {
-String[] weeks = {"","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
-return weeks[i];
-}
 		
 public static void showDays(int year) {//判断某一年2月有几天
 		Calendar c = Calendar.getInstance();
