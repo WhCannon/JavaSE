@@ -4,7 +4,6 @@
 - [Properties类](#propertie类)
 - [Runtime类](#runtime类)
 - [Math类](#math类)
-- [BigInteger类](#biginteger类)
 - [Date类](#date类)
 - [DateFormat类](#dateformat类)
 - [Calendar类](#calendar类)
@@ -50,8 +49,6 @@ public static int getRandom(int start, int end) {
 	return number;
 }
 ```
-
-## BigInteger类
 
 
 ## Date类
