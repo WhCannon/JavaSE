@@ -108,11 +108,12 @@ System.out.println(year+"年"+month+"月"+day+"日"+getWeek(week));
 }
 		
 		
-public static void showDays(int year) {//判断某一年2月有几天
-		Calendar c = Calendar.getInstance();
-		c.set(year, 2, 1);//将时间设置为指定年份的3月1日
-		c.add(Calendar.DAY_OF_MONTH, -1);//将时间前推1天，就是2月的最后一天
-		showDate(c);
+// 设置日历对象的年月日
+Calendar c = Calendar.getInstance();
+c.set(year, 2, 1); // 其实是这一年的3月1日
+// 把时间往前推一天，就是2月的最后一天
+c.add(Calendar.DATE, -1);
+System.out.println(c.get(Calendar.DATE));
 	}
 ```
 
