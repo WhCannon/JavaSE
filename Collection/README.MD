@@ -79,8 +79,8 @@ System.out.println(it.next());//abc3
 System.out.println(it.next());//abc4
 System.out.println(it.next());//java.util.NoSuchElementException
 //改为循环
-for(Iterator it = coll.iterator(); it.hasNext(); ){
-			System.out.println(it.next());
+while(it.hasNext()){
+	System.out.println(it.next());
 		}
 ```  
 
