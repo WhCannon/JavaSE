@@ -35,6 +35,10 @@ public static void functionDemo_2(){
 			System.out.println(name);
 		}
 		
+		//硬盘上的路径，我们应该用\\替代\
+		String s4 = "E:\\JavaSE\\day14\\avi";
+		String[] str4Array = s4.split("\\\\");两个\代表字符串中的一个\
+		
 		String str = "zhangsanttttxiaoqiangmmmmmmzhaoliu";
 		String[] names = str.split("(.)\\1+");//正则中()代表复用
 		//正则中()代表一个捕获组，()\\1代表第一组，()\\1+代表第一组内容出现了1次或多次
