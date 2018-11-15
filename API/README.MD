@@ -67,12 +67,8 @@ SimpleDateFormat():默认模式
 SimpleDateFormat(String pattern):给定的模式
 这个模式字符串该如何写呢?
 通过查看API，我们就找到了对应的模式
-年 y
-月 M	
-日 d
-时 H
-分 m
-秒 s
+年 y;月 M	;日 d;时 H;分 m;秒 s
+
 		// 创建日期对象
 		Date d = new Date();
 		// 创建格式化对象
@@ -87,7 +83,6 @@ SimpleDateFormat(String pattern):给定的模式
 		//在把一个字符串解析为日期的时候，请注意格式必须和给定的字符串格式匹配
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date dd = sdf2.parse(str);
-	}
 ```
 
 ## Calendar类
