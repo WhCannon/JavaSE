@@ -1,5 +1,6 @@
 # 基本数据类型对象包装类
 - [自动装箱拆箱](#自动装箱拆箱)
+- [BigInteger类](#biginteger类)
 - [练习](#练习)
 ### 自动装箱拆箱
 ```java
@@ -28,6 +29,12 @@ System.out.println(x==y);//false
 System.out.println(x.equals(y));//true
 jdk1.5以后，自动装箱，如果装箱的是一个字节，那么该数据会被共享，不会重新开辟空间。
 ```
+
+## BigInteger类
+
+
+
+
 ### 练习
 #### 练习1 [答案1](#答案1)
 对一个字符串中的数值进行从小到大的排序  
