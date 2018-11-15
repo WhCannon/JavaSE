@@ -52,6 +52,12 @@ public static int getRandom(int start, int end) {
 
 
 ## Date类
+```java
+Date date = new Date();//将当前时间封装成Date对象。
+Date date2 = new Date(1335664696656l);//将指定毫秒值封装成Date对象。
+int compareTo(Date a);比较两个日期的顺序
+```
+
 
 ## DateFormat类
 
