@@ -414,10 +414,49 @@ System.out.println(p.getName()+":"+p.getAge());
 ```
 
 ## 答案3
-*方法一
+* 方法一
 ```java
 1.创建一个新集合
 2.遍历旧集合，获取每一个元素
 3.拿获取到的元素到新集合去找，如果没有就添加到新集合，如果有就不添加
+public static void main(String[] args) {
+		// 创建集合对象
+		ArrayList array = new ArrayList();
+
+		// 添加多个字符串元素(包含内容相同的)
+		array.add("hello");
+		array.add("world");
+		array.add("java");
+		array.add("world");
+		array.add("java");
+		array.add("world");
+		array.add("world");
+		array.add("world");
+		array.add("world");
+		array.add("java");
+		array.add("world");
+
+		// 创建新集合
+		ArrayList newArray = new ArrayList();
+
+		// 遍历旧集合,获取得到每一个元素
+		Iterator it = array.iterator();
+		while (it.hasNext()) {
+			String s = (String) it.next();
+			// 拿这个元素到新集合去找，看有没有
+			if (!newArray.contains(s)) {
+				newArray.add(s);
+			}
+		}
+
+		// 遍历新集合
+		for (int x = 0; x < newArray.size(); x++) {
+			String s = (String) newArray.get(x);
+			System.out.println(s);
+		}
+	}
+```
+* 方法二
+```java
 
 ```
