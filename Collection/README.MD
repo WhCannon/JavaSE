@@ -338,6 +338,8 @@ System.out.println(p.getName()+":"+p.getAge()); //可以使用父类中的方法
 ### 练习2 [答案2](#答案2) 
 以Person对象年龄进行从小到大的排序  
 
+### [练习3](#答案3)
+ArrayList去除集合中重复的元素
 
 
 
@@ -409,4 +411,13 @@ System.out.println(p.getName()+":"+p.getAge());
 }
 }
 输出结果：lisi:21 zhaoliu:25 zhangsan:28 wanggu:29 zhouqi:29
+```
+
+## 答案3
+* 方法一
+```java
+1.创建一个新集合
+2.遍历旧集合，获取每一个元素
+3.拿获取到的元素到新集合去找，如果没有就添加到新集合，如果有就不添加
+
 ```
