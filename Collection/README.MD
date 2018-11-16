@@ -458,5 +458,21 @@ public static void main(String[] args) {
 ```
 * 方法二
 ```java
+1.从第一个元素开始，依次和后面的元素比较，如果有相同的，就删除后面的
+2.同理，第二、第三个元素....
 
+for (int x = 0; x < array.size() - 1; x++) {
+			for (int y = x + 1; y < array.size(); y++) {
+				if (array.get(x).equals(array.get(y))) {
+					array.remove(y);
+					y--;
+				}
+			}
+		}
+		// 遍历集合
+		Iterator it = array.iterator();
+		while (it.hasNext()) {
+			String s = (String) it.next();
+			System.out.println(s);
+		}
 ```
