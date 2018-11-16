@@ -166,6 +166,7 @@ System.out.println(p.getName()+"--"+p.getAge());
 
 ### LinkedList
 内部是链表数据结构，是不同步的。增删元素的速度快。  
+```java
 void addFirst(E);//将是定元素插入列表的开头  
 void addLast(E);  
 E getFirst();//返回列表的第一个元素  
@@ -179,6 +180,8 @@ peekFirst();//获取但不移除，如果列表为空，返回null
 peekLast();  
 pollFirst();//获取并移除，如果列表为空，返回null  
 pollLast();  
+```
+示例：
 ```java
 LinkedList link = new LinkedList();
 link.addFirst("abc1");
