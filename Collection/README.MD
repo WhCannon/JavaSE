@@ -414,7 +414,7 @@ System.out.println(p.getName()+":"+p.getAge());
 ```
 
 ## 答案3
-* 方法一
+*方法一
 ```java
 1.创建一个新集合
 2.遍历旧集合，获取每一个元素
