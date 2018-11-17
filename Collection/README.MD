@@ -12,7 +12,7 @@
    - [泛型类](#泛型类)
    - [泛型接口](#泛型接口)
    - [泛型的限定](#泛型的限定)
-## [foreach](#foreach)
+## [Foreach](#foreach)
 ## [练习](#练-习)
 
 
@@ -362,7 +362,7 @@ System.out.println(p.getName()+":"+p.getAge()); //可以使用父类中的方法
 	}
 }
 ```
-## foreach
+## Foreach
 ```java
 List<String> list =new ArrayList<String>();
 		list.add("abc1");
