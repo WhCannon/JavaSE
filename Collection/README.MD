@@ -270,28 +270,26 @@ ot.show(true);
 interface Inter<T>{
 	public void show(T t);
 }
-
-class InterImpl implements Inter<String>{//实现时明确数据类型
+1.在实现接口时，已经知道是什么类型
+class InterImpl implements Inter<String>{
 	public void show(String str){
 		System.out.println("show :"+str);
 	}
 }
-
-class InterImpl2<Q> implements Inter<Q>{//实现时不明确数据类型，继续使用泛型
-	public void show(Q q){
-		System.out.println("show :"+q);
+Inter<String> i = new InterImpl();
+i.show("hello");
+		
+2.在实现接口时，还不知道是什么类型		
+class InterImpl2<T> implements Inter<T>{
+	public void show(T t){
+		System.out.println("show :"+t);
 	}
 }
+Inter<String> i = new InterImpl<String>();
+i.show("hello");
 
-public class GenericDefine{
-public static void main(String[] args) {
-InterImpl in = new InterImpl();
-in.show("abc");
-
-InterImpl2<Integer> in2 = new InterImpl2<Integer>();
-in2.show(5);
-	}
-}
+Inter<Integer> ii = new InterImpl<Integer>();
+ii.show(100);
 ```
 ### 泛型的限定
 通配符： ?  表示未知类型
