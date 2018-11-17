@@ -12,6 +12,7 @@
    - [泛型类](#泛型类)
    - [泛型接口](#泛型接口)
    - [泛型的限定](#泛型的限定)
+## [foreach](#foreach)
 ## [练习](#练-习)
 
 
@@ -361,8 +362,34 @@ System.out.println(p.getName()+":"+p.getAge()); //可以使用父类中的方法
 	}
 }
 ```
+## foreach
+```java
+List<String> list =new ArrayList<String>();
+		list.add("abc1");
+		list.add("abc2");
+		list.add("abc3");
+		for(String s : list){	//简化书写。		
+			System.out.println(s);			
+		}
+可以使用高级for遍历map集合吗？不能直接用，但是可以将map转成单列的set，就可以用了
+		Map<Integer,String> map = new HashMap<Integer,String>();
+		map.put(3,"zhagsan");
+		map.put(1,"wangyi");
+		map.put(7,"wagnwu");
+		map.put(4,"zhagsansan");
+		
+		for(Integer key : map.keySet()){
+			String value = map.get(key);
+			System.out.println(key+"::"+value);
+		}
+		
+		for(Map.Entry<Integer,String> me : map.entrySet()){
+			Integer key = me.getKey();
+			String value = me.getValue();
+			System.out.println(key+":"+value);
+		}
 
-
+```
 
 ## 练 习
 ### 练习1 [答案1](#答案1) 
