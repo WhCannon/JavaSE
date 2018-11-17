@@ -252,17 +252,16 @@ public static void main(String[] args) {
 ### 泛型方法
 ```java
 	// 将泛型定义在方法上。放在返回值类型前
-public <W> void show(W str){
-	System.out.println("show : "+str.toString());
-}
-public void print(QQ str){
-	System.out.println("print : "+str);
-}
-	
-	// 当方法静态时，不能访问类上定义的泛型。如果静态方法使用泛型，只能将泛型定义在方法上。 
-public static <Y> void method(Y obj){
-	System.out.println("method:"+obj);
+public class ObjectTool {
+	public <T> void show(T t) {
+		System.out.println(t);
 	}
+}
+
+ObjectTool ot = new ObjectTool();
+ot.show("hello");
+ot.show(100);
+ot.show(true);
 ```
 
 ### 泛型接口
