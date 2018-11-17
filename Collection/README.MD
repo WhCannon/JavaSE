@@ -238,6 +238,15 @@ public class ObjectTool<T> {//定义一个参数T，传入什么类型T就代表
 		System.out.println(t);
 	}
 }
+
+public static void main(String[] args) {
+		 ObjectTool<String> ot = new ObjectTool<String>();
+		 ot.show("hello");
+		 ObjectTool<Integer> ot2 = new ObjectTool<Integer>();
+		 ot2.show(100);
+		 ObjectTool<Boolean> ot3 = new ObjectTool<Boolean>();
+		 ot3.show(true);
+		}
 ```
 
 ### 泛型方法
