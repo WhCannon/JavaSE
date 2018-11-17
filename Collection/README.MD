@@ -233,16 +233,15 @@ return temp==0?p1.getAge()-p2.getAge(): temp;
 示例：
 
 ```java
-public class Tool<QQ>{//定义一个类型参数QQ，使用时传入什么类型，就代表什么类型
-private QQ q;
-public QQ getObject() {
-return q;
+public class ObjectTool<T> {//定义一个参数T，传入什么类型T就代表什么类型
+	public void show(T t) {
+		System.out.println(t);
 	}
+}
+```
 
-public void setObject(QQ object) {
-this.q = object;
-	}
-	
+### 泛型方法
+```java
 	// 将泛型定义在方法上。放在返回值类型前
 public <W> void show(W str){
 	System.out.println("show : "+str.toString());
@@ -255,8 +254,8 @@ public void print(QQ str){
 public static <Y> void method(Y obj){
 	System.out.println("method:"+obj);
 	}
-}
 ```
+
 ### 泛型接口
 ```java
 //泛型接口，将泛型定义在接口上。 
