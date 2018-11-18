@@ -225,6 +225,15 @@ int temp = p1.getName().compareTo(p2.getName());
 return temp==0?p1.getAge()-p2.getAge(): temp;
 	}
 }
+
+如果这个比较器只用一次，可以用匿名内部类来写
+TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
+			@Override
+			public int compare(Person p1, Person p2) {
+			int temp = p1.getName().compareTo(p2.getName());//主要条件，根据name排序
+			return temp==0?p1.getAge()-p2.getAge(): temp;//次要条件，根据age排序
+			}
+		});
 ```
 
 ## 泛 型
