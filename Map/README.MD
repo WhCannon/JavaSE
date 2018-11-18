@@ -240,8 +240,13 @@ public class HashMapDemo {
 ```java
 public class TreeMapDemo {
 	public static void main(String[] args) {
-		TreeMap<Student,String> tm = new TreeMap<Student,String>(new ComparatorByName());
-		
+		//TreeMap<Student,String> tm = new TreeMap<Student,String>(new ComparatorByName());传入了一个比较器
+		TreeMap<Student,String> tm = new TreeMap<Student,String>(new Comparator<Student>(){
+		public int compare(Student o1, Student o2) {
+		int t=o1.name.compareTo(o2.name);
+		return t==0?t=o1.age-o2.age:t;
+			}
+		});	
 		tm.put(new Student("lisi",38),"北京");
 		tm.put(new Student("zhaoliu",24),"上海");
 		tm.put(new Student("xiaoqiang",31),"沈阳");
