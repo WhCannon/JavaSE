@@ -205,10 +205,11 @@ System.out.println(link.removeFirst());//abc3
 #### LinkedHashSet
 HashSet的子类，内部为哈希表和链表结构，变成了元素唯一的有序集合。  
 ### TreeSet
+* 自然排序
 interface Comparable();//这个接口就代表自然排序，此接口强行对实现它的每个类的对象进行自然排序  
 可以对Set集合中的元素进行排序。判断元素唯一性是根据compareTo方法,可以进行重写。 
 	  
-	  
+* 比较器排序	  
 如果对象不具备比较性或者其比较方法是我们不需要的，此时可以使用TreeSet集合的第二种排序方式，  
 让集合自身具备比较功能：定义一个类实现Comparator（比较器）接口，覆盖compare方法，  
 将该类对象作为参数传递给TreeSet集合的构造函数。
