@@ -15,6 +15,7 @@
    - [DateStream](#datestream)
    - [Byte数组流](#byte数组流)
 - ## [File类](#file-类)
+- ## [文件过滤器](#文件过滤器)
 - ## [打印流](#打-印-流)
 - ## [RandomAccessFile](#randomaccessfile随机读取文件)
 - ## [编码解码](#编码-解码)
@@ -528,6 +529,38 @@ public static void listDemo_2() {
 		for(String name : names){
 			System.out.println(name);
 		}
+```
+
+## 文件过滤器
+```java
+定义一个过滤器
+public class SuffixFilter implements FilenameFilter {//文件名过滤器接口	
+	private String suffix ;
+	public SuffixFilter(String suffix) {
+		super();
+		this.suffix = suffix;
+	}
+	public boolean accept(File dir, String name) {//需要重写这个过滤方法
+		return name.endsWith(suffix);
+	}
+}
+public static void listDemo_2() {
+		File dir = new File("c:\\");
+		String[] names = dir.list(new SuffixFilter(".txt"));//这里可以用匿名内部类
+		for(String name : names){
+			System.out.println(name);
+		}
+public static void listDemo_2() {
+		File dir = new File("c:\\");
+		String[] names = dir.list(new FilenameFilter(){
+		public boolean accept(File dir, String name) {//重写这个过滤方法
+		return new File(dir,name).isFile() && name.endsWith(“.txt”);
+					}
+		}); 
+		for(String name : names){
+			System.out.println(name);
+		}
+
 ```
 
 ## 打 印 流
