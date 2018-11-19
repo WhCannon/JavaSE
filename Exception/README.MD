@@ -1,6 +1,6 @@
 # 异常
   - [格式](#格式)
-  - [自定义异常](https://github.com/WhCannon/JavaSE/tree/master/Exception/自定义异常.MD)
+  - [自定义异常](#自定义异常)
   - [练习](#练习)
 
 
@@ -29,6 +29,54 @@ class  Exception2
 	public static void main(String[] args) 
 	{
 		int[] arr = new int[3];
+		Demo d = new Demo();
+		int num = d.method(null,-30);
+		System.out.println("num="+num);
+		System.out.println("over");
+	}
+}
+```
+## 自定义异常
+```java
+class FuShuIndexException extends Exception
+{
+	FuShuIndexException()
+	{}
+
+	
+	FuShuIndexException(String msg)
+	{
+		super(msg);
+	}
+}
+
+
+class Demo
+{
+	public int method(int[] arr,int index)//throws NullPointerException//FuShuIndexException
+	{		
+
+		if(arr==null)
+			throw new NullPointerException("数组的引用不能为空！");
+
+		if(index>=arr.length)
+		{
+			throw new ArrayIndexOutOfBoundsException("数组的角标越界啦，哥们，你是不是疯了？："+index);
+		}
+		if(index<0)
+		{
+			throw new FuShuIndexException("角标变成负数啦！！");
+		}
+		return arr[index];
+	}
+}
+
+class  ExceptionDemo3
+{
+	public static void main(String[] args) //throws FuShuIndexException
+	{
+		int[] arr = new int[3];
+		
 		Demo d = new Demo();
 		int num = d.method(null,-30);
 		System.out.println("num="+num);
