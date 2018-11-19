@@ -1,6 +1,7 @@
 # 集合框架工具类
   - [Collections](#collections)
   - [可变参数](#可变参数)
+  - [练习](#练习)
   
   
   
@@ -88,4 +89,15 @@ public static int newAdd(int a,int...  arr){// ...代表参数个数是可变的
 		}
 		return sum;
 	}
+```
+
+## 练习
+### [练习1](#答案1)
+模拟斗地主洗牌发牌
+
+
+
+## 答案2
+```java
+
 ```
