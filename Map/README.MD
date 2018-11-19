@@ -279,6 +279,13 @@ public class TreeMapDemo {
 
 ### 答案1
 ```java
+定义一个TreeMap集合，键Character,值Integer
+把字符串转为字符数组，遍历字符数组，得到每一个字符
+拿获得的字符作为键到集合中找值，
+如果值为null,说明该键不存在，就把该字符作为键，1作为值存储
+如果不为null，重新存储该键，并把值加1
+定义字符串缓冲区
+遍历集合，得到键和值，进行拼接，存入字符串缓冲区，最后输出
 public class MapTest {
 
 	public static void main(String[] args) {
