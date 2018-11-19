@@ -15,7 +15,7 @@
    - [DateStream](#datestream)
    - [Byte数组流](#byte数组流)
 - ## [File类](#file-类)
-- ## [文件过滤器](#文件过滤器)
+- ## [文件过滤器](#filenamefilter)
 - ## [打印流](#打-印-流)
 - ## [RandomAccessFile](#randomaccessfile随机读取文件)
 - ## [编码解码](#编码-解码)
@@ -531,7 +531,7 @@ public static void listDemo_2() {
 		}
 ```
 
-## 文件过滤器
+## FilenameFilter
 ```java
 定义一个过滤器
 public class SuffixFilter implements FilenameFilter {//文件名过滤器接口	
