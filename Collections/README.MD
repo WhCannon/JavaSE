@@ -1,10 +1,26 @@
 # 集合框架工具类
+  - [Collections](#collections)
   - [可变参数](#可变参数)
   
   
   
-  
-  
+## Collections
+* 排序
+```java
+
+```
+* 交换
+```java
+
+```
+* 获取
+```java
+
+```
+* 其他
+```java
+
+```
 
 
 ## 可变参数
