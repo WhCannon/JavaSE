@@ -290,30 +290,22 @@ public static void demo_write() throws IOException {
 ### 字节流缓冲区
 ```java
 public static void main(String[] args) throws IOException {
-		FileOutputStream fos = new FileOutputStream("bos.txt");
-		BufferedOutputStream bos = new BufferedOutputStream(fos);
-		// 简单写法
-		BufferedOutputStream bos = new BufferedOutputStream(
-				new FileOutputStream("bos.txt"));
-
-		bos.write("hello".getBytes());
-		bos.close();
+		method4("e:\\哥有老婆.mp4", "copy4.mp4");
 	}
-	
-public static void main(String[] args) throws IOException {
-		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(
-				"bos.txt"));
-		// 读取数据,一次读1个
-		int by = 0;
-		while ((by = bis.read()) != -1) {
-		System.out.print((char) by);
-		 }
 
+// 高效字节流一次读写一个字节数组：
+	public static void method4(String srcString, String destString)
+			throws IOException {
+		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(
+				srcString));
+		BufferedOutputStream bos = new BufferedOutputStream(
+				new FileOutputStream(destString));
 		byte[] bys = new byte[1024];
 		int len = 0;
 		while ((len = bis.read(bys)) != -1) {
-			System.out.print(new String(bys, 0, len));
+			bos.write(bys, 0, len);
 		}
+		bos.close();
 		bis.close();
 	}
 ```
