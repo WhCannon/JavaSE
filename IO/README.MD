@@ -269,8 +269,12 @@ public class ByteStreamDemo {
 		}
 		fis.close();
 	}
-		
-	public static void demo_write() throws IOException {
+```
+
+### FileOutputStream
+```java
+
+public static void demo_write() throws IOException {
 		//1，创建字节输出流对象，用于操作文件.
 		FileOutputStream fos = new FileOutputStream("bytedemo.txt");
 		
@@ -280,12 +284,7 @@ public class ByteStreamDemo {
 		fos.close();//关闭资源动作要完成。 
 	}
 }
-
 ```
-
-### FileOutputStream
-
-
 
 ### 标准输入输出流
 System类中的静态对象：
