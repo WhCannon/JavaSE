@@ -8,6 +8,7 @@
 - ## [字节流](#字节流)
    - [FileInputStream](#fileinputstream)
    - [FileOutputStream](#fileoutputstream)
+   - [字节流缓冲区](#字节流缓冲区)
    - [标准输入输出流](#标准输入输出流)
    - [序列流](#sequenceinputstream)
    - [对象输入输出流](#object流)
@@ -284,6 +285,37 @@ public static void demo_write() throws IOException {
 		fos.close();//关闭资源动作要完成。 
 	}
 }
+```
+
+### 字节流缓冲区
+```java
+public static void main(String[] args) throws IOException {
+		FileOutputStream fos = new FileOutputStream("bos.txt");
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		// 简单写法
+		BufferedOutputStream bos = new BufferedOutputStream(
+				new FileOutputStream("bos.txt"));
+
+		bos.write("hello".getBytes());
+		bos.close();
+	}
+	
+public static void main(String[] args) throws IOException {
+		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(
+				"bos.txt"));
+		// 读取数据,一次读1个
+		int by = 0;
+		while ((by = bis.read()) != -1) {
+		System.out.print((char) by);
+		 }
+
+		byte[] bys = new byte[1024];
+		int len = 0;
+		while ((len = bis.read(bys)) != -1) {
+			System.out.print(new String(bys, 0, len));
+		}
+		bis.close();
+	}
 ```
 
 ### 标准输入输出流
