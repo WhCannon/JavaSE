@@ -845,6 +845,9 @@ public class Test {
 ### [练习7](#答案7)
 对文件进行切割和合并。
 
+### [练习8](#答案8)
+复制多级文件夹内的文件
+
 ### 答案1
 ```java
 public class CopyTextTest_2 {
@@ -1344,4 +1347,8 @@ public class SuffixFilter implements FilenameFilter {
 		return name.endsWith(suffix);
 	}
 }
+```
+## 答案8
+```java
+
 ```
