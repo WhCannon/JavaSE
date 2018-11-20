@@ -29,10 +29,10 @@
 
 
 
-### 字符流
+## 字符流
 字节流读取文字字节数据后，不直接操作而是先查指定的编码表，获取对应的文字，再对这个文字进行操作。  
 顶层抽象父类：Reader,Writer  
-## FileWriter
+### FileWriter
 将一些文字存储到硬盘的一个文件中
 ```java
 public class FileWriterDemo {
@@ -95,6 +95,24 @@ System.out.println(num2+":"+new String(buf));//-1=dec，读到结尾，返回-1�
 	}
 	fr.close();
 }
+```
+### 字符流读取和写入示例
+```java
+public static void main(String[] args) throws IOException {
+		// 封装数据源
+		FileReader fr = new FileReader("a.txt");
+		// 封装目的地
+		FileWriter fw = new FileWriter("b.txt");
+		
+		char[] chs = new char[1024];
+		int len = 0;
+		while ((len = fr.read(chs)) != -1) {
+			fw.write(chs, 0, len);
+			fw.flush();
+		}
+		fw.close();
+		fr.close();
+	}
 ```
 
 ### 缓冲区
