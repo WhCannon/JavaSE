@@ -1,5 +1,5 @@
 # 多线程
-### [创建线程方法1（并获取当前运行线程的名称）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/创建线程1.MD)
+  - [创建线程](#创建线程)
 ### [创建线程方法2](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/创建线程2.MD)
 ### [等待唤醒机制](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/等待唤醒.MD)
 ### [Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/Lock.MD)
@@ -8,3 +8,42 @@
 ### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
 ### [例4：死锁](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例4.MD)
 ### [例5：Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例5.MD)
+
+
+## 创建线程
+### 创建线程方法1，并获取当前运行线程名称
+```java
+class Demo extends Thread
+{
+	private String name;
+	Demo(String name)
+	{
+		super(name);
+		//this.name = name;
+	}
+	public void run()
+	{
+		for(int x=0; x<10; x++)
+		{
+			//for(int y=-9999999; y<999999999; y++){}
+			System.out.println(name+"....x="+x+".....name="+Thread.currentThread().getName());
+		}
+	}
+}
+
+class ThreadDemo2 
+{
+	public static void main(String[] args) 
+	{
+		Demo d1 = new Demo("旺财");
+		Demo d2 = new Demo("xiaoqiang");
+		d1.start();//开启线程，调用run方法。
+		d2.start();
+		System.out.println("over...."+Thread.currentThread().getName());
+	}
+}
+```
+### 创建线程方法2
+```java
+
+```
