@@ -6,6 +6,7 @@
   - [死锁](#死锁)
   - [Lock锁](#lock锁)
   - [线程组](#线程组)
+  - [线程池](#线程池)
   - [练习](#练-习)
 
 
@@ -500,7 +501,21 @@ public class ThreadGroupDemo {
 
 ```
 
+## 线程池
+```java
+public static void main(String[] args) {
+		// 创建一个线程池对象，控制要创建几个线程对象。
+		// public static ExecutorService newFixedThreadPool(int nThreads)
+		ExecutorService pool = Executors.newFixedThreadPool(2);
 
+		// 可以执行Runnable对象或者Callable对象代表的线程
+		pool.submit(new MyRunnable());
+		pool.submit(new MyRunnable());
+
+		//结束线程池
+		pool.shutdown();
+	}
+```
 
 
 
