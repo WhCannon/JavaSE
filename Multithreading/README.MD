@@ -7,6 +7,7 @@
 ### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
 ### [例4：死锁](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例4.MD)
 ### [例5：Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例5.MD)
+  - [练习](#练-习)
 
 
 ## 创建线程
@@ -210,6 +211,62 @@ class  ResourceDemo3
 		//开启线程
 		t1.start();
 		t2.start();
+	}
+}
+```
+
+## 练 习
+### [练习1](#答案1)
+卖票示例，4个窗口同时卖100张票。
+
+
+
+## 答案1
+```java
+class Ticket implements Runnable //extends Thread
+{
+	private  int num = 100;
+	Object obj = new Object();
+	public void run()
+	{
+		while(true)
+		{
+			synchronized(obj)  //同步锁
+			{
+				if(num>0)
+				{
+					try{Thread.sleep(10);}catch (InterruptedException e){}
+					
+					System.out.println(Thread.currentThread().getName()+".....sale...."+num--);
+				}
+			}
+		}
+	}
+}
+
+class  TicketDemo
+{
+	public static void main(String[] args) 
+	{
+
+		Ticket t = new Ticket();//创建一个线程任务对象。
+
+		Thread t1 = new Thread(t);
+		Thread t2 = new Thread(t);
+		Thread t3 = new Thread(t);
+		Thread t4 = new Thread(t);
+
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+
+		/*
+		t1.start();
+		t1.start();//一个线程不能开启两次，会抛出无效线程状态异常 
+		t1.start();
+		t1.start();
+		*/
 	}
 }
 ```
