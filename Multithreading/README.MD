@@ -6,7 +6,7 @@
 ### [例2：存钱示例（同步函数）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例2.MD)
 ### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
 ### [例4：死锁](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例4.MD)
-### [例5：Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例5.MD)
+### [Lock锁](#lock锁)
   - [练习](#练-习)
 
 
@@ -214,6 +214,54 @@ class  ResourceDemo3
 	}
 }
 ```
+
+## lock锁
+### Lock与Condition接口对数组的操作
+```java
+class BoundedBuffer {
+   final Lock lock = new ReentrantLock();
+   final Condition notFull  = lock.newCondition(); 
+   final Condition notEmpty = lock.newCondition(); 
+
+   final Object[] items = new Object[100];
+   int putptr, takeptr, count;
+
+   public void put(Object x) throws InterruptedException {
+     lock.lock();
+     try {
+       while (count == items.length) 
+         notFull.await();
+       items[putptr] = x; 
+       if (++putptr == items.length) putptr = 0;
+       ++count;
+       notEmpty.signal();
+     } finally {
+       lock.unlock();
+     }
+   }
+
+   public Object take() throws InterruptedException {
+     lock.lock();
+     try {
+       while (count == 0) 
+         notEmpty.await();
+       Object x = items[takeptr]; 
+       if (++takeptr == items.length) takeptr = 0;
+       --count;
+       notFull.signal();
+       return x;
+     } finally {
+       lock.unlock();
+     }
+   } 
+ }
+
+```
+
+
+
+
+
 
 ## 练 习
 ### [练习1](#答案1)
