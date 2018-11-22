@@ -1,6 +1,5 @@
 # 多线程
   - [创建线程](#创建线程)
-### [创建线程方法2](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/创建线程2.MD)
 ### [等待唤醒机制](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/等待唤醒.MD)
 ### [Lock，Condition接口](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/Lock.MD)
 ### [例1：卖票示例（同步代码块）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例1.MD)
@@ -45,5 +44,80 @@ class ThreadDemo2
 ```
 ### 创建线程方法2
 ```java
+class Demo implements Runnable
+{
+	public void run()
+	{
+		show();
+	}
+	public void show()
+	{
+		for(int x=0; x<20; x++)
+		{
+			System.out.println(Thread.currentThread().getName()+"....."+x);
+		}
+	}
+}
+
+class  ThreadDemo
+{
+	public static void main(String[] args) 
+	{	
+		Demo d = new Demo();
+		Thread t1 = new Thread(d);
+		Thread t2 = new Thread(d);
+		t1.start();
+		t2.start();
+
+	}
+}
+```
+
+### 传参的特点
+```java
+
+class Thread 
+{
+	private Runnable r;
+	Thread()
+	{
+	}
+	Thread(Runnable r)  //子类对象传递给this.r
+	{
+		this.r  = r;
+	}
+
+	public void run()
+	{
+		if(r!=null)
+			r.run();     //如果r不为空，调用目标的run方法
+	}
+
+	public void start()
+	{
+		run();
+	}
+}
+class ThreadImpl implements Runnable   //实现的特点
+{
+	public void run()
+	{
+		System.out.println("runnable run");
+	}
+}
+ThreadImpl i = new ThreadImpl();
+Thread t = new Thread(i);
+t.start();
+
+
+class SubThread extends Thread  //继承的特点
+{
+	public void run()
+	{
+		System.out.println("hahah");
+	}
+}
+SubThread s = new SubThread();
+s.start();   //调用子类对象的run方法
 
 ```
