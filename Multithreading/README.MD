@@ -216,47 +216,114 @@ class  ResourceDemo3
 ```
 
 ## lock锁
-### Lock与Condition接口对数组的操作
+### Lock接口与Condition接口
 ```java
-class BoundedBuffer {
-   final Lock lock = new ReentrantLock();
-   final Condition notFull  = lock.newCondition(); 
-   final Condition notEmpty = lock.newCondition(); 
+import java.util.concurrent.locks.*;
 
-   final Object[] items = new Object[100];
-   int putptr, takeptr, count;
+class Resource
+{
+	private String name;
+	private int count = 1;
+	private boolean flag = false;
 
-   public void put(Object x) throws InterruptedException {
-     lock.lock();
-     try {
-       while (count == items.length) 
-         notFull.await();
-       items[putptr] = x; 
-       if (++putptr == items.length) putptr = 0;
-       ++count;
-       notEmpty.signal();
-     } finally {
-       lock.unlock();
-     }
-   }
+	//创建一个锁对象。
+	Lock lock = new ReentrantLock();
 
-   public Object take() throws InterruptedException {
-     lock.lock();
-     try {
-       while (count == 0) 
-         notEmpty.await();
-       Object x = items[takeptr]; 
-       if (++takeptr == items.length) takeptr = 0;
-       --count;
-       notFull.signal();
-       return x;
-     } finally {
-       lock.unlock();
-     }
-   } 
- }
+	//通过已有的锁获取两组监视器，一组监视生产者，一组监视消费者。
+	Condition producer_con = lock.newCondition();
+	Condition consumer_con = lock.newCondition();
 
+	public  void set(String name)
+	{
+		lock.lock();
+		try
+		{
+			while(flag)
+			try{producer_con.await();}catch(InterruptedException e){}
+			this.name = name + count;
+			count++;
+			System.out.println(Thread.currentThread().getName()+"...生产者5.0..."+this.name);
+			flag = true;
+			consumer_con.signal();
+		}
+		finally
+		{
+			lock.unlock();
+		}
+		
+	}
+
+	public  void out()
+	{
+		lock.lock();
+		try
+		{
+			while(!flag)
+			try{cousumer_con.await();}catch(InterruptedException e){}	
+			System.out.println(Thread.currentThread().getName()+"...消费者.5.0......."+this.name);
+			flag = false;
+			producer_con.signal();
+		}
+		finally
+		{
+			lock.unlock();
+		}
+		
+	}
+}
+
+class Producer implements Runnable
+{
+	private Resource r;
+	Producer(Resource r)
+	{
+		this.r = r;
+	}
+	public void run()
+	{
+		while(true)
+		{
+			r.set("烤鸭");
+		}
+	}
+}
+
+class Consumer implements Runnable
+{
+	private Resource r;
+	Consumer(Resource r)
+	{
+		this.r = r;
+	}
+	public void run()
+	{
+		while(true)
+		{
+			r.out();
+		}
+	}
+}
+
+class  ProducerConsumerDemo2
+{
+	public static void main(String[] args) 
+	{
+		Resource r = new Resource();
+		Producer pro = new Producer(r);
+		Consumer con = new Consumer(r);
+
+		Thread t0 = new Thread(pro);
+		Thread t1 = new Thread(pro);
+		Thread t2 = new Thread(con);
+		Thread t3 = new Thread(con);
+		t0.start();
+		t1.start();
+		t2.start();
+		t3.start();
+	}
+}
 ```
+
 
 
 
@@ -266,6 +333,11 @@ class BoundedBuffer {
 ## 练 习
 ### [练习1](#答案1)
 卖票示例，4个窗口同时卖100张票。
+
+### [练习2](#答案2)
+Lock与Condition接口对数组的操作
+
+
 
 
 
@@ -317,4 +389,47 @@ class  TicketDemo
 		*/
 	}
 }
+```
+
+## 答案2
+* Lock与Condition接口对数组的操作
+```java
+class BoundedBuffer {
+   final Lock lock = new ReentrantLock();
+   final Condition notFull  = lock.newCondition(); 
+   final Condition notEmpty = lock.newCondition(); 
+
+   final Object[] items = new Object[100];
+   int putptr, takeptr, count;
+
+   public void put(Object x) throws InterruptedException {
+     lock.lock();
+     try {
+       while (count == items.length) 
+         notFull.await();
+       items[putptr] = x; 
+       if (++putptr == items.length) putptr = 0;
+       ++count;
+       notEmpty.signal();
+     } finally {
+       lock.unlock();
+     }
+   }
+
+   public Object take() throws InterruptedException {
+     lock.lock();
+     try {
+       while (count == 0) 
+         notEmpty.await();
+       Object x = items[takeptr]; 
+       if (++takeptr == items.length) takeptr = 0;
+       --count;
+       notFull.signal();
+       return x;
+     } finally {
+       lock.unlock();
+     }
+   } 
+ }
+
 ```
