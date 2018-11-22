@@ -2,7 +2,6 @@
   - [创建线程](#创建线程)
   - [等待唤醒机制](#等待唤醒机制)
   - [Lock锁](#lock锁)
-### [例1：卖票示例（同步代码块）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例1.MD)
 ### [例2：存钱示例（同步函数）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例2.MD)
 ### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
 ### [例4：死锁](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例4.MD)
@@ -332,11 +331,13 @@ class  ProducerConsumerDemo2
 
 ## 练 习
 ### [练习1](#答案1)
-卖票示例，4个窗口同时卖100张票。
+同步代码块，卖票示例，4个窗口同时卖100张票。
 
 ### [练习2](#答案2)
 Lock与Condition接口对数组的操作
 
+### [练习3](#答案3)
+同步函数，存钱示例
 
 
 
@@ -432,4 +433,44 @@ class BoundedBuffer {
    } 
  }
 
+```
+
+## 答案3
+两个人，每个都到银行存钱存三次，每次100，总共600.
+```java
+class Bank
+{
+	private int sum;
+	public synchronized void add(int num)//同步函数
+	{
+			sum = sum + num;
+			try{Thread.sleep(10);}catch(InterruptedException e){}
+			System.out.println("sum="+sum);
+
+	}
+}
+
+class Cus implements Runnable
+{
+	private Bank b = new Bank();
+	public void run()
+	{
+		for(int x=0; x<3; x++)
+		{
+			b.add(100);
+		}
+	}
+}
+
+class BankDemo 
+{
+	public static void main(String[] args) 
+	{
+		Cus c = new Cus();
+		Thread t1 = new Thread(c);
+		Thread t2 = new Thread(c);
+		t1.start();
+		t2.start();
+	}
+}
 ```
