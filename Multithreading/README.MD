@@ -2,9 +2,8 @@
   - [创建线程](#创建线程)
   - [等待唤醒机制](#等待唤醒机制)
   - [Lock锁](#lock锁)
-### [例2：存钱示例（同步函数）](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例2.MD)
-### [例3：多线程下的单例设计模式](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例3.MD)
-### [例4：死锁](https://github.com/WhCannon/JavaSE/tree/master/Multithreading/例4.MD)
+  - [多线程下的单例设计模式](#多线程下的单例设计模式)
+  - [死锁](#死锁)
   - [Lock锁](#lock锁)
   - [练习](#练-习)
 
