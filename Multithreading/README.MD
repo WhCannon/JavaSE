@@ -213,6 +213,74 @@ class  ResourceDemo3
 }
 ```
 
+## 多线程下的单例设计模式
+### 饿汉式（无安全隐患）
+```java
+class Single
+{
+	private static final Single s = new Single();
+	private Single(){}
+	public static Single getInstance()
+	{
+		return s;
+	}
+}
+```
+
+### 懒汉式-延迟加载形式（多线程下存在安全隐患）
+```java
+class Single
+{
+	private static Single s = null;
+	private Single(){}
+	public static Single getInstance()
+	{
+		if(s==null)
+				s = new Single();
+		return s;
+	}
+}
+class  SingleDemo
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+	}
+}
+```
+* 解决安全隐患
+```java
+class Single
+{
+	private static Single s = null;
+
+	private Single(){}
+
+	public static Single getInstance()
+	{
+		if(s==null)
+		{
+			synchronized(Single.class)		
+			{
+				if(s==null)
+					s = new Single();
+			}
+		}
+		return s;
+	}
+}
+class  SingleDemo
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+	}
+}
+```
+* 加入同步为了解决多线程安全问题,加入双重判断是为了解决效率问题.
+
+
+
 ## lock锁
 ### Lock接口与Condition接口
 ```java
