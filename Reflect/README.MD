@@ -71,6 +71,13 @@ public static void createNewObject_2() throws Exception {
 		
 		//通过该构造器对象的newInstance方法进行对象的初始化。
 		Object obj = constructor.newInstance("小明",38);
+		
+		//通过反射获取私有构造方法
+		Constructor con = c.getDeclaredConstructor(String.class);
+		// 用该私有构造方法创建对象，暴力访问
+		con.setAccessible(true);// 值为true可以访问任意权限
+		Object obj = con.newInstance("风清扬");
+
 	}
 
 	public static void createNewObject() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
