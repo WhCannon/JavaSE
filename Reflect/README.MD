@@ -157,6 +157,10 @@ public static void createNewObject_2() throws Exception {
 ### [练习2](#答案2)
 通过配置文件运行类中的方法
 
+### [练习3](#答案3)
+通过反射越过泛型检查，例如通过ArrayList<Integer>中的一个对象，  
+在集合中添加一个字符串
+
 ## 答案1
 ```java
 主板
@@ -249,4 +253,22 @@ public class Test {
 		m.invoke(obj);
 	}
 }
+```
+## 答案3
+```java
+public static void main(String[] args) throws NoSuchMethodException,
+			SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
+		// 创建集合对象
+		ArrayList<Integer> array = new ArrayList<Integer>();
+
+		Class c = array.getClass(); // 集合ArrayList的class文件对象
+		Method m = c.getMethod("add", Object.class);
+
+		m.invoke(array, "hello"); // 调用array的add方法，传入的值是hello
+		m.invoke(array, "world");
+		m.invoke(array, "java");
+
+		System.out.println(array);
+	}
 ```
