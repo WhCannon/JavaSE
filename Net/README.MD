@@ -486,7 +486,7 @@ public static void main(String[] args) throws IOException {
 	}
 ```
 
-## 答案2
+## 答案3
 ```java
 客户端
 public static void main(String[] args) throws UnknownHostException, IOException {
