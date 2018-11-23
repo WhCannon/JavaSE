@@ -154,6 +154,8 @@ public static void createNewObject_2() throws Exception {
 ### [练习1](#答案1)
 模拟电脑运行，扩展硬件设施，演示反射的拓展性。
 
+### [练习2](#答案2)
+通过配置文件运行类中的方法
 
 ## 答案1
 ```java
@@ -215,4 +217,36 @@ public class SoundCard implements PCI {
 
 配置文件的格式
 pci1=cn.itcast.reflect.test.SoundCard
+```
+
+## 答案2
+```java
+ * 		需要有配置文件配合使用。
+ * 		用class.txt代替。
+ * 		并且你知道有两个键。
+ * 			className
+ * 			methodName
+ */
+public class Test {
+	public static void main(String[] args) throws Exception {
+		// 加载键值对数据
+		Properties prop = new Properties();
+		FileReader fr = new FileReader("class.txt");
+		prop.load(fr);
+		fr.close();
+
+		// 获取数据
+		String className = prop.getProperty("className");
+		String methodName = prop.getProperty("methodName");
+
+		// 反射
+		Class c = Class.forName(className);
+		Constructor con = c.getConstructor();
+		Object obj = con.newInstance();
+
+		// 调用方法
+		Method m = c.getMethod(methodName);
+		m.invoke(obj);
+	}
+}
 ```
