@@ -577,6 +577,21 @@ class TL<T> {
 	}
 }
 ```
+```java
+public class Demo1 {
+	@Test
+	public void fun1() {
+		final ThreadLocal<String> tl = new ThreadLocal<String>();
+		tl.set("hello");//存				
+		new Thread() {
+			public void run() {
+				tl.set("内部类存");
+				System.out.println("内部类：" + tl.get());//null，取不出来
+			}
+		}.start();		
+		System.out.println(tl.get());//取
+	}
+```
 
 ## 练 习
 ### [练习1](#答案1)
