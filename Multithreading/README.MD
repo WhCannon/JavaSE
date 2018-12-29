@@ -7,6 +7,7 @@
   - [Lock锁](#lock锁)
   - [线程组](#线程组)
   - [线程池](#线程池)
+  - [ThreadLocal](#threadlocal)
   - [练习](#练-习)
 
 
@@ -559,7 +560,23 @@ public static void main(String[] args) {
 	}
 ```
 
-
+## ThreadLocal
+* ThreadLocal内部原理
+```java
+class TL<T> {
+	private Map<Thread, T> map = new HashMap<Thread, T>();	
+	public void set(T data) {
+		// 使用当前线程做key
+		map.put(Thread.currentThread(), data);
+	}	
+	public T get() {
+		return map.get(Thread.currentThread());
+	}	
+	public void remove() {
+		map.remove(Thread.currentThread());
+	}
+}
+```
 
 ## 练 习
 ### [练习1](#答案1)
